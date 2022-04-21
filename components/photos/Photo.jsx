@@ -43,7 +43,8 @@ const Photo = ({src, description, width, height}) => {
                             alt={description}
                             objectFit={'contain'}
                         />
-                        {description && <p className=''>{description}</p>}
+                        {/*TODO: Description style*/}
+                        {description && <p className='p-4 mx-auto'>{description}</p>}
 
                     </div>}
             >
