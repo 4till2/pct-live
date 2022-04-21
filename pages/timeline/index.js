@@ -16,7 +16,8 @@ export default function Timeline({timeline}) {
                 "w-full overflow-auto  px-4 pt-6 pb-20 flex-none "
             )}
         >
-            <span className="text-6xl font-extrabold w-1/2 flex border-b-4 border-gray-700 border-dashed mb-4 pb-2 text-gray-300 dark:text-gray-300">
+            <span
+                className="text-6xl font-extrabold  flex border-b-2 border-gray-700 border-dashed mb-4 pb-2 text-gray-300 dark:text-gray-300">
                 Timeline
             </span>
             <NextSeo
@@ -36,12 +37,12 @@ export default function Timeline({timeline}) {
             />
             {timeline.map(day => {
                 return (
-                    <div className="my-2 py-2 border-b border-gray-200 dark:border-gray-800">
-                        <h1 className="text-3xl font-bold text-gray-400 dark:text-gray-600 mb-4">{moment(day.date).format('MMMM Do YYYY')}</h1>
+                    <div key={day.date} className="my-2 py-2 border-b border-dashed border-gray-200 dark:border-gray-800">
+                        <h1 className="text-3xl font-bold text-gray-400 dark:text-gray-600 mb-2">{moment(day.date).format('MMMM Do YYYY')}</h1>
                         <div className="w-full">
                             {
                                 day?.logs?.map(src => {
-                                    return <LogCard post={src}/>
+                                    return <div key={src.slug}><LogCard post={src}/></div>
                                 })
                             }
                         </div>
@@ -80,7 +81,7 @@ export async function getServerSideProps() {
         "excerpt",
         "content"
     ])) || {}
-    let keys = [...Object.keys(albums), ...Object?.keys(words), ...Object?.keys(logs)].sort().reverse()
+    let keys = [...Object.keys(albums), ...Object?.keys(words), ...Object?.keys(logs)].filter((v, i, a) => a.indexOf(v) === i).sort().reverse()
     const timeline = keys.map(key => {
         return {date: key, photos: albums[key] || null, words: words[key] || null, logs: logs[key] || null}
     })

@@ -5,7 +5,7 @@ import MetaDetails from "./metaDetails";
 export default function LogCard({post}) {
     return (
         <Link href={`/logs/${post.slug}`} key={post.slug}>
-            <a className="py-3 p-2 m-2 border-b border-gray-100 rounded-lg cursor-pointer grid items-center bg-gray-100 shadow hover:bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-800 dark:border-gray-900">
+            <a className="py-3 p-2 my-1 border-b border-gray-100 rounded-lg cursor-pointer grid items-center bg-gray-100 shadow hover:bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-800 dark:border-gray-900">
                 <article
 
                 >

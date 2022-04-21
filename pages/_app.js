@@ -30,7 +30,7 @@ function MyApp({Component, pageProps}) {
                     description: "*",
                     images: [
                         {
-                            url: "public/touch-icons/android-chrome-192x192.png",
+                            url: "4till2.com/public/touch-icons/android-chrome-192x192.png",
                             width: 800,
                             height: 600,
                             alt: "4till2",
@@ -81,7 +81,7 @@ function MyApp({Component, pageProps}) {
             ) : (
                 ""
             )}
-            <div id="app">
+            <div id="app" className="pb-12 lg:pb-0">
                 {isExperimentPage ? (
                     <WithoutSidebar>
                         <Component {...pageProps} />

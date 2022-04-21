@@ -7,7 +7,7 @@ export default function WordsGallery({words}) {
                 {
                     words.map(p => {
                         return (
-                            <div className="m-2 w-1/2 md:w-1/4 break-words shrink">
+                            <div key={p.slug} className="mr-2 mt-1 w-1/2 md:w-1/4 break-words shrink">
                                 <WordCard post={p}/>
                             </div>
                         )

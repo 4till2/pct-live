@@ -38,9 +38,9 @@ export default function WordContent({ post }) {
       <div className="mt-4 text-gray-200">
         ______________________________________________
       </div>
-      {/*<div className="mb-4 mt-10 post-content">*/}
-      {/*  <Newsletter />*/}
-      {/*</div>*/}
+      <div className="mb-4 mt-10 post-content">
+        <Newsletter />
+      </div>
     </div>
   );
 }

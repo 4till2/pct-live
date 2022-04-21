@@ -4,7 +4,7 @@ import {useRouter} from "next/router";
 import {
     BlogIcon,
     EmailIcon,
-    ExternalLinkIcon,
+    ExternalLinkIcon, GuestIcon,
     HomeIcon,
     InstagramIcon,
     LogIcon,
@@ -53,7 +53,7 @@ export default function Sidebar() {
             url: "/logs",
             icon: LogIcon,
             active: pathname === "/logs",
-        }
+        },
     ];
 
     const SOCIAL = [
@@ -142,7 +142,7 @@ export default function Sidebar() {
                     <button aria-label="Toggle Dark Mode" type="button"
                             onClick={(e) => setTheme(theme == 'light' ? 'dark' : 'light')}
                             className="h-8 px-4 bg-gray-200 rounded-lg dark:bg-gray-800 flex items-center justify-center hover:ring-2 ring-gray-500 transition-all">
-                    <span >
+                    <span>
                         {theme == 'light' ? MoonIcon : SunIcon}
                     </span>
                     </button>

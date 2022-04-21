@@ -36,7 +36,7 @@ const Photo = ({src, description, width, height}) => {
                     }
                 }}
                 contentElement={
-                    () => <div className="p-4 rounded bg-white">
+                    () => <div className="">
                         <Image
                             src={src + FULL_REQUEST_SIZE}
                             layout='fill'
