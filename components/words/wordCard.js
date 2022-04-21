@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function WordCard({post}) {
     return (
         <Link href={`/words/${post.slug}`} key={post.slug}>
-            <a className="py-3  p-2 my-1 border-b border-gray-100 rounded-lg cursor-pointer grid items-center bg-gray-100 shadow hover:bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-800 dark:border-gray-900">
+            <a className="py-3 p-2 my-1 border-b border-gray-100 rounded-lg cursor-pointer grid items-center bg-gray-100 shadow hover:bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-800 dark:border-gray-900">
                 <article
 
                 >
@@ -17,8 +17,8 @@ export default function WordCard({post}) {
                 <h3 className="text-xl">{post?.title}</h3>
 
                 <div
-                    dangerouslySetInnerHTML={{__html: post?.content}}
-                    className="inline-block mx-auto post-content text-clip overflow-hidden"
+                    dangerouslySetInnerHTML={{__html: post?.excerpt}}
+                    className="inline-block mx-auto post-content line-clamp-4 overflow-hidden text-gray-700 dark:text-gray-300"
                 />
             </a>
         </Link>

@@ -18,7 +18,7 @@ export default function LogCard({post}) {
                 <MetaDetails metadata={post.metadata}/>
                 <div
                     dangerouslySetInnerHTML={{__html: post?.content}}
-                    className="inline-block post-content text-clip overflow-hidden mt-2 line-clamp-3"
+                    className="inline-block post-content text-clip overflow-hidden mt-2 line-clamp-3 text-gray-700 dark:text-gray-300"
                 />
             </a>
         </Link>
