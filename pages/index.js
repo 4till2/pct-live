@@ -15,18 +15,18 @@ export default function Home({latest}) {
                 </h2>
                 <div className="post-content text-lg">
 
-                    <p>Real time <a className="text-gray-500 font-medium hover:text-gray-600" href={"/map"}>waypoints</a>, <a
+                    <p>Real time <a className="text-gray-500 font-medium hover:text-gray-600"
+                                    href={"/map"}>waypoints</a>, <a
                         className="text-gray-500 font-medium hover:text-gray-600" href={"/timeline"}>photos</a>, <a
                         className="text-gray-500 font-medium hover:text-gray-600" href={"/words"}>notes</a>,
-                        and <a className="text-gray-500 font-medium hover:text-gray-600" href={"/logs"}>logs</a> from my 2022 <a
+                        and <a className="text-gray-500 font-medium hover:text-gray-600" href={"/logs"}>logs</a> from my
+                        2022 <a
                             href="https://en.wikipedia.org/wiki/Pacific_Crest_Trail"
                             className="text-gray-500 font-medium hover:text-gray-600">Pacific Crest Trail</a> thru
                         hike.
                     </p>
                 </div>
-                <div className="mt-8 mb-8 text-gray-500 text-center">
-                    ________________________________
-                </div>
+
                 <h2 className="text-xl font-black text-gray-500">Latest</h2>
                 <div className="grid lg:grid-cols-3 gap-2">
                     {latest.photo &&
@@ -46,9 +46,17 @@ export default function Home({latest}) {
                     </div>
 
                 </div>
-
+                <div className="mt-8 mb-8 text-gray-500 text-center">
+                    ________________________________
+                </div>
                 <div className="mb-4 mt-10 post-content">
-                    <Newsletter />
+                    <Newsletter/>
+                </div>
+                <img src="https://c.tenor.com/rUHoKUXUX6oAAAAC/strut-dancing.gif"
+                     className="rounded-lg mx-auto p-2 w-48  overflow-hidden"/>
+                <div className="flex items-center">
+                    <a href='https://yosefserkez.me' className="flex mt-4 mx-auto mb-2 text-gray-400 text-xs font-medium">
+                        *yosef serkez*</a>
                 </div>
             </article>
         </>
@@ -56,7 +64,7 @@ export default function Home({latest}) {
 }
 
 export async function getServerSideProps() {
-    let photo = await loadFromAlbum(process.env.GOOGLE_ALBUM_ID).then(res => res[0]) || {}
+    let photo = await loadFromAlbum(process.env.GOOGLE_ALBUM_ID).then(res => res ? res[res.length - 1] : {}) || {}
     let word = getAllWords([
         "title",
         "date",
