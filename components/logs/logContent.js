@@ -1,4 +1,5 @@
 import moment from "moment";
+import MetaDetails from "./metaDetails";
 
 export default function LogContent({post}) {
     return (
@@ -15,26 +16,10 @@ export default function LogContent({post}) {
             <h1 className="text-4xl mb-5 font-black md:text-4xl text-center max-w-[620px] mx-auto">
                 {moment(post.date).format('MMMM Do YYYY, h:mm a')}
             </h1>
-            {post?.metadata?.details ? (
-                <div className="flex overflow-x-scroll flex flex-row snap-x w-full mb-5 space-x-4 text-md">
-                    <div className="grid grid-flow-col grid-rows-1 gap-x-2">
-                        {Object.entries(post?.metadata.details).map((met) => (
-                            <div
-                                key={met[0]}
-                                className="grid font-mono p-2 bg-gray-200 rounded-lg dark:bg-gray-600"
-                            >
-                                <p className="text-lg font-semibold capitalize whitespace-nowrap">{met[0].replace('_', ' ')}</p>
-                                <p>{met[1]}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            ) : (
-                ""
-            )}
+            <MetaDetails metadata={post.metadata}/>
             <div
                 dangerouslySetInnerHTML={{__html: post?.content}}
-                className="inline-block mx-auto post-content"
+                className="inline-block mx-auto post-content mt-2"
             />
         </div>
     );

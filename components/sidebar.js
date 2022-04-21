@@ -1,17 +1,19 @@
-import {useState} from "react";
+import React, {useState} from "react";
 import Link from "next/link";
 import {useRouter} from "next/router";
 import {
     BlogIcon,
+    EmailIcon,
     ExternalLinkIcon,
     HomeIcon,
+    InstagramIcon,
     LogIcon,
     MapIcon,
-    SideProjectsIcon,
-    SpinnerIcon,
+    MoonIcon,
+    SunIcon,
     TimelineIcon,
+    TwitterIcon,
 } from "lib/icons";
-import {GitHub, Instagram, Linkedin, Mail, Twitter} from "react-feather";
 import classnames from "classnames";
 import {useTheme} from "next-themes";
 
@@ -58,26 +60,26 @@ export default function Sidebar() {
         {
             title: "Instagram",
             url: `https://www.instagram.com/4till2`,
-            icon: <Instagram className="w-5 h-5"/>,
+            icon: InstagramIcon,
             external: true,
         },
-        {
-            title: "GitHub",
-            url: `https://github.com/4till2`,
-            icon: <GitHub className="w-5 h-5"/>,
-            external: true,
-        },
+        // {
+        //     title: "GitHub",
+        //     url: `https://github.com/4till2`,
+        //     icon: GithubIcon,
+        //     external: true,
+        // },
         {
             title: "Twitter",
             url: `https://twitter.com/4till2`,
-            icon: <Twitter className="w-5 h-5"/>,
+            icon: TwitterIcon,
             external: true,
         },
 
         {
             title: "Email",
             url: `mailto:yo@4till2.com`,
-            icon: <Mail className="w-5 h-5"/>,
+            icon: EmailIcon,
             external: false,
         },
     ];
@@ -104,19 +106,19 @@ export default function Sidebar() {
     const renderSocials = () => {
         return (
             <>
-                <h4 className="px-10 mt-4 mb-2 text-gray-400">Social</h4>
+                <span className="px-4 mx-8 my-8 text-gray-400 border-t border-gray-200 dark:border-gray-800 "></span>
                 {SOCIAL.map((link) => (
-                    <div className="px-4" key={link.title}>
+                    <div className="px-4 text-gray-600 dark:text-gray-400" key={link.title}>
                         <Link href={link.url}>
                             <a
                                 className={classnames(
-                                    "ml-3 flex items-center w-full px-4 py-[5px] mb-2 transition-all duration-150 ease-in-out rounded-lg dark:hover:bg-black",
+                                    "flex items-center w-full px-4 py-[5px] mb-2 transition-all duration-150 ease-in-out rounded-lg dark:hover:bg-black",
                                     {"bg-black text-white": link?.active},
                                     {"hover:bg-gray-100": !link?.active}
                                 )}
                                 target={link?.external ? "_blank" : undefined}
                             >
-                                <span className="w-5 h-5 min-w-[30px]">{link?.icon}</span>
+                                <span className="w-5 h-5 min-w-[40px]">{link?.icon}</span>
                                 <span>{link?.title}</span>
                                 {link?.external ? (
                                     <span className="w-4 h-4 ml-auto text-gray-400 dark:text-gray-600">
@@ -136,19 +138,14 @@ export default function Sidebar() {
     const renderPrefs = () => {
         return theme ? (
             <>
-                <h4 className="px-10 mt-4 mb-2 text-gray-400">Theme</h4>
-                <div
-                    className="px-2 py-1 mx-6 dark:bg-[#111] border border-gray-200 rounded-lg cursor-pointer dark:border-gray-800">
-                    <select
-                        onChange={(e) => setTheme(e.target.value)}
-                        className="w-full bg-transparent dark:bg-[#111] outline-none appearance-none cursor-pointer"
-                        defaultValue={theme}
-                        placeholder="Select theme"
-                    >
-                        <option value="system">System</option>
-                        <option value="light">Light</option>
-                        <option value="dark">Dark</option>
-                    </select>
+                <div className="px-4 mt-4 mb-2 text-gray-400">
+                    <button aria-label="Toggle Dark Mode" type="button"
+                            onClick={(e) => setTheme(theme == 'light' ? 'dark' : 'light')}
+                            className="h-8 px-4 bg-gray-200 rounded-lg dark:bg-gray-800 flex items-center justify-center hover:ring-2 ring-gray-500 transition-all">
+                    <span >
+                        {theme == 'light' ? MoonIcon : SunIcon}
+                    </span>
+                    </button>
                 </div>
             </>
         ) : (

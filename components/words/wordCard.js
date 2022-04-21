@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function WordCard({post}) {
     return (
         <Link href={`/words/${post.slug}`} key={post.slug}>
-            <a className="py-3  p-2 my-1 border-b border-gray-100 rounded-lg cursor-pointer grid items-center bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-black dark:border-gray-900">
+            <a className="py-3  p-2 my-1 border-b border-gray-100 rounded-lg cursor-pointer grid items-center bg-gray-100 shadow hover:bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-800/50 dark:border-gray-900">
                 <article
 
                 >

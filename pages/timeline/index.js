@@ -16,17 +16,17 @@ export default function Timeline({timeline}) {
                 "w-full overflow-auto  px-4 pt-6 pb-20 flex-none "
             )}
         >
-            <div className="text-4xl font-extrabold mx-auto border-b-2 mb-1.5 text-gray-600 dark:text-gray-300">
+            <span className="text-6xl font-extrabold w-1/2 flex border-b-4 border-gray-700 border-dashed mb-4 pb-2 text-gray-300 dark:text-gray-300">
                 Timeline
-            </div>
+            </span>
             <NextSeo
-                title="Photos – 4till2"
-                description="Photos – 4till2"
+                title="Timeline – 4till2"
+                description="Oh the places to go – 4till2"
                 openGraph={{
-                    site_name: "Photos – 4till2",
-                    title: "Photos – 4till2",
+                    site_name: "Timeline – 4till2",
+                    title: "Timeline – 4till2",
                     description:
-                        "Photos – 4till2",
+                        "Oh the places to go – 4till2",
                 }}
                 twitter={{
                     handle: "@4till2",
@@ -62,7 +62,7 @@ export default function Timeline({timeline}) {
 }
 
 export async function getServerSideProps() {
-    let albums = await loadFromAlbum(process.env.GOOGLE_ALBUM_ID).then(res => groupPhotosByDate(res))
+    let albums = await loadFromAlbum(process.env.GOOGLE_ALBUM_ID).then(res => groupPhotosByDate(res)) || {}
     let words = groupByDate(getAllWords([
         "title",
         "date",
@@ -70,7 +70,7 @@ export async function getServerSideProps() {
         "author",
         "excerpt",
         "external",
-    ]))
+    ])) || {}
     let logs = groupByDate(getAllLogs([
         "title",
         "date",
@@ -79,8 +79,8 @@ export async function getServerSideProps() {
         "image",
         "excerpt",
         "content"
-    ]))
-    let keys = [...Object.keys(albums), ...Object.keys(words), ...Object.keys(logs)].sort().reverse()
+    ])) || {}
+    let keys = [...Object.keys(albums), ...Object?.keys(words), ...Object?.keys(logs)].sort().reverse()
     const timeline = keys.map(key => {
         return {date: key, photos: albums[key] || null, words: words[key] || null, logs: logs[key] || null}
     })
