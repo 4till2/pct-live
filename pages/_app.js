@@ -21,12 +21,12 @@ function MyApp({Component, pageProps}) {
     return (
         <ThemeProvider defaultTheme="system" attribute="class" enableSystem={true}>
             <DefaultSeo
-                title="4till2!"
+                title="4till2"
                 description="*"
                 canonical={canonicalUrl}
                 openGraph={{
-                    site_name: "4till2!",
-                    title: "4till2!",
+                    site_name: "4till2",
+                    title: "4till2",
                     description: "*",
                     images: [
                         {
