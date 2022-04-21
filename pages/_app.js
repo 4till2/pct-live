@@ -21,16 +21,16 @@ function MyApp({Component, pageProps}) {
     return (
         <ThemeProvider defaultTheme="system" attribute="class" enableSystem={true}>
             <DefaultSeo
-                title="Hi, I'm 4till2!"
-                description="Full stack developer at Citi & at home."
+                title="4till2!"
+                description="*"
                 canonical={canonicalUrl}
                 openGraph={{
-                    site_name: "Hi, I'm 4till2!",
-                    title: "Hi, I'm 4till2!",
-                    description: "Full stack developer at Citi & at home.",
+                    site_name: "4till2!",
+                    title: "4till2!",
+                    description: "*",
                     images: [
                         {
-                            url: "https://res.cloudinary.com/raskin-me/image/upload/v1647987393/raskin.me/images/meta_image_s5dfw1.jpg",
+                            url: "public/touch-icons/android-chrome-192x192.png",
                             width: 800,
                             height: 600,
                             alt: "4till2",
