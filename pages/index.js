@@ -5,6 +5,7 @@ import Photo from "../components/photos/Photo";
 import LogCard from "../components/logs/logCard";
 import WordCard from "../components/words/wordCard";
 import Newsletter from "../components/Newsletter";
+import Link from 'next/link'
 
 export default function Home({latest}) {
     return (
@@ -15,15 +16,24 @@ export default function Home({latest}) {
                 </h2>
                 <div className="post-content text-lg">
 
-                    <p>Real time <a className="text-gray-500 font-medium hover:text-gray-600"
-                                    href={"/map"}>waypoints</a>, <a
-                        className="text-gray-500 font-medium hover:text-gray-600" href={"/timeline"}>photos</a>, <a
-                        className="text-gray-500 font-medium hover:text-gray-600" href={"/words"}>notes</a>,
-                        and <a className="text-gray-500 font-medium hover:text-gray-600" href={"/logs"}>logs</a> from my
-                        2022 <a
-                            href="https://en.wikipedia.org/wiki/Pacific_Crest_Trail"
-                            className="text-gray-500 font-medium hover:text-gray-600">Pacific Crest Trail</a> thru
-                        hike.
+                    <p>Real time{' '}
+                        <Link href={"/map"}>
+                            <a className="text-gray-500 font-medium hover:text-gray-600">waypoints</a>
+                        </Link>,{' '}
+                        <Link href={"/map"}>
+                            <a
+                                className="text-gray-500 font-medium hover:text-gray-600">photos</a>
+                        </Link>,{' '}
+                        <Link href={"/words"}>
+                            <a
+                                className="text-gray-500 font-medium hover:text-gray-600">notes</a>
+                        </Link>, and {' '}
+                        <Link href={'/logs'}>
+                            <a className="text-gray-500 font-medium hover:text-gray-600">logs</a>
+                        </Link> from my 2022{' '}
+                        <Link href="https://en.wikipedia.org/wiki/Pacific_Crest_Trail">
+                            <a className="text-gray-500 font-medium hover:text-gray-600">Pacific Crest Trail</a>
+                        </Link> thru hike.
                     </p>
                 </div>
 
@@ -55,7 +65,8 @@ export default function Home({latest}) {
                 <img src="https://c.tenor.com/rUHoKUXUX6oAAAAC/strut-dancing.gif"
                      className="rounded-lg mx-auto p-2 w-48  overflow-hidden"/>
                 <div className="flex items-center">
-                    <a href='https://yosefserkez.me' className="flex mt-4 mx-auto mb-2 text-gray-400 text-xs font-medium">
+                    <a href='https://yosefserkez.me'
+                       className="flex mt-4 mx-auto mb-2 text-gray-400 text-xs font-medium">
                         *yosef serkez*</a>
                 </div>
             </article>

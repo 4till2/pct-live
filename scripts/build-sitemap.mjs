@@ -1,27 +1,29 @@
-import { writeFileSync } from "fs";
-import { globby } from "globby";
+import {writeFileSync} from "fs";
+import {globby} from "globby";
 import prettier from "prettier";
 
 async function generate() {
-  const prettierConfig = await prettier.resolveConfig("./.prettierrc.js");
-  const pages = await globby([
-    "pages/*.js",
-    "data/**/*.md",
-    "!data/*.md",
-    "!pages/_*.js",
-    "!pages/api",
-  ]);
+    const prettierConfig = await prettier.resolveConfig("./.prettierrc.js");
+    const pages = await globby([
+        "pages/*.js",
+        "data/**/*.md",
+        "!data/*.md",
+        "!data/private/",
+        "data/**/*.private.md",
+        "!pages/_*.js",
+        "!pages/api",
+    ]);
 
-  const sitemap = `
+    const sitemap = `
     <?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
         ${pages
-          .map((page) => {
+        .map((page) => {
             const path = page
-              .replace("pages", "")
-              .replace("data", "")
-              .replace(".js", "")
-              .replace(".md", "");
+                .replace("pages", "")
+                .replace("data", "")
+                .replace(".js", "")
+                .replace(".md", "");
             const route = path === "/index" ? "" : path;
 
             return `
@@ -29,18 +31,18 @@ async function generate() {
                   <loc>${`https://4till2.com${route}`}</loc>
               </url>
             `;
-          })
-          .join("")}
+        })
+        .join("")}
     </urlset>
     `;
 
-  const formatted = prettier.format(sitemap, {
-    ...prettierConfig,
-    parser: "html",
-  });
+    const formatted = prettier.format(sitemap, {
+        ...prettierConfig,
+        parser: "html",
+    });
 
-  // eslint-disable-next-line no-sync
-  writeFileSync("public/sitemap.xml", formatted);
+    // eslint-disable-next-line no-sync
+    writeFileSync("public/sitemap.xml", formatted);
 }
 
 generate();
