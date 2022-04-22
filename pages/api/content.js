@@ -2,8 +2,16 @@ import fs from "fs";
 import {join} from "path";
 import matter from "gray-matter";
 
-function getDirectory(dir) {
+// Work around to have files loaded in serverless function at build time
+const directories = {'blips': null, 'logs': null, 'words': null}
+Object.keys(directories).forEach(d => directories[d] = loadDirectory(d))
+
+function loadDirectory(dir) {
     return join(process.cwd(), `data/${dir}`)
+}
+
+function getDirectory(dir) {
+    return directories[dir]
 }
 
 export default class Api {
