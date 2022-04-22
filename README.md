@@ -1,4 +1,7 @@
 
+## Photos
+Create a file in `data/albums` with frontmatter`title: google photos album title`
+
 ## Cache
 `REDIS_URL` env variable
 

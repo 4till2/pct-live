@@ -24,7 +24,7 @@ export default function WordList({ data, activeSlug }) {
             <a>
               <article
                 className={classnames(
-                  "px-5 py-3 my-1 border-b border-gray-100 rounded-lg cursor-pointer group  dark:hover:bg-black dark:border-gray-900",
+                  "px-4 py-3 my-1 border-b border-gray-100 rounded-lg cursor-pointer group  dark:hover:bg-black dark:border-gray-900",
                   { "bg-black": activeSlug == post.slug },
                   { "hover:bg-gray-100": activeSlug != post.slug }
                 )}

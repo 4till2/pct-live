@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import Link from "next/link";
 import {useRouter} from "next/router";
 import {
+    AlbumIcon,
     BlipIcon,
     BlogIcon,
     EmailIcon,
@@ -48,6 +49,12 @@ export default function Sidebar() {
             url: "/words",
             icon: BlogIcon,
             active: pathname.includes("/words"),
+        },
+        {
+            title: "Photos",
+            url: "/albums",
+            icon: AlbumIcon,
+            active: pathname.includes("/albums"),
         },
         {
             title: "Blips",

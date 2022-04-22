@@ -9,7 +9,7 @@ export default function Map({waypoints}) {
     const [lat] = useState(waypoints[0]?.lat || 35.6844);
     const [zoom] = useState(14);
     useEffect(async () => {
-        if (map.current) return; //stops map from intializing more than once
+        if (map.current) return; //stops map from initializing more than once
         map.current = new maplibregl.Map({
             container: mapContainer.current,
             center: [lng, lat],

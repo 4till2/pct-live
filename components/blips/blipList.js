@@ -14,7 +14,7 @@ export default function BlipList({ data, activeSlug }) {
       <div className="px-4 py-2 mb-2 font-black text-gray-500 border-b border-gray-100  dark:border-gray-800 text-xl">
         Blips
         <p className="text-sm text-gray-400 font-light dark:text-gray-600">
-          Thoughts, ideas, and brain farts.
+          Thoughts, ideas, and other brain farts.
         </p>
       </div>
       {data?.map((post) => {
