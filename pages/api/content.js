@@ -3,7 +3,7 @@ import {join} from "path";
 import matter from "gray-matter";
 
 function getDirectory(dir) {
-    return join(process.cwd(), dir)
+    return join(process.cwd(), `data/${dir}`)
 }
 
 export default class Api {
