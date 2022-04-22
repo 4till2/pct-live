@@ -1,15 +1,8 @@
-Personal Website and Blog template.
 
-## Built with
+## Cache
+`REDIS_URL` env variable
 
-- Next.js 12
-- TailwindCSS 2.2
-- SASS
+Using [Upstash](https://console.upstash.com) with a free limit of 10,000 requests per day.
+Should be swappable with no consequences.
 
-## Getting Started
 
-First, run the development server:
-
-- Setup with `yarn`
-- Run dev server with `yarn dev`
-- Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

@@ -1,4 +1,4 @@
-import {loadFromAlbum} from "../lib/google_photos";
+import {loadFromAlbumByTitle} from "../lib/google_photos";
 import Photo from "../components/photos/Photo";
 import LogCard from "../components/logs/logCard";
 import WordCard from "../components/words/wordCard";
@@ -32,9 +32,9 @@ export default function Home({latest}) {
                         <Link href={'/logs'}>
                             <a className="text-gray-500 font-medium hover:text-gray-600">logs</a>
                         </Link> from my 2022{' '}
-                        <Link href="https://en.wikipedia.org/wiki/Pacific_Crest_Trail" target="_blank">
-                            <a className="text-gray-500 font-medium hover:text-gray-600">Pacific Crest Trail</a>
-                        </Link> thru hike.
+                        <a target="_blank" href="https://en.wikipedia.org/wiki/Pacific_Crest_Trail"
+                           className="text-gray-500 font-medium hover:text-gray-600">Pacific Crest Trail</a>{' '}
+                        thru hike.
                     </p>
                 </div>
 
@@ -60,7 +60,8 @@ export default function Home({latest}) {
                         }
                     </div>
                     <Link href={"/timeline"}>
-                        <a className="text-gray-500 w-full font-medium hover:text-gray-600 text-center font-bold">See All</a>
+                        <a className="text-gray-500 w-full font-medium hover:text-gray-600 text-center font-bold">See
+                            All</a>
                     </Link>
                 </div>
                 <div className="mt-8 mb-8 text-gray-500 text-center">
@@ -86,7 +87,7 @@ export async function getServerSideProps() {
     const logsApi = new Api("logs")
     const blipsApi = new Api("blips")
 
-    let photo = await loadFromAlbum(process.env.GOOGLE_ALBUM_ID).then(res => res ? res[res.length - 1] : {}) || {}
+    let photo = await loadFromAlbumByTitle('Pacific Crest Trail').then(res => res ? res[res.length - 1] : {}) || {}
     let word = wordsApi.getAllPosts([
         "title",
         "date",

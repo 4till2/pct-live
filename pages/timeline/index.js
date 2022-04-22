@@ -1,5 +1,5 @@
 import {NextSeo} from "next-seo";
-import {loadFromAlbum} from "../../lib/google_photos";
+import {loadFromAlbumByTitle} from "../../lib/google_photos";
 import {groupByDate, groupPhotosByDate} from "../../lib/group_by_date";
 import moment from "moment";
 import LogCard from "../../components/logs/logCard";
@@ -70,7 +70,7 @@ export async function getServerSideProps() {
     const logsApi = new Api("logs")
     const blipsApi = new Api("blips")
 
-    let albums = await loadFromAlbum(process.env.GOOGLE_ALBUM_ID).then(res => groupPhotosByDate(res)) || {}
+    let albums = await loadFromAlbumByTitle('Pacific Crest Trail').then(res => groupPhotosByDate(res)) || {}
     let blips = groupByDate(blipsApi.getAllPosts([
         "title",
         "date",
@@ -97,9 +97,15 @@ export async function getServerSideProps() {
         "excerpt",
         "content"
     ])) || {}
-    let keys = [...Object.keys(albums),...Object.keys(blips), ...Object?.keys(words), ...Object?.keys(logs)].filter((v, i, a) => a.indexOf(v) === i).sort().reverse()
+    let keys = [...Object.keys(albums), ...Object.keys(blips), ...Object?.keys(words), ...Object?.keys(logs)].filter((v, i, a) => a.indexOf(v) === i).sort().reverse()
     const timeline = keys.map(key => {
-        return {date: key, blips: blips[key] || null, photos: albums[key] || null, words: words[key] || null, logs: logs[key] || null}
+        return {
+            date: key,
+            blips: blips[key] || null,
+            photos: albums[key] || null,
+            words: words[key] || null,
+            logs: logs[key] || null
+        }
     })
     return {
         props: {timeline},
