@@ -2,23 +2,13 @@ import fs from "fs";
 import {join} from "path";
 import matter from "gray-matter";
 
-// Work around to have files loaded in serverless function at build time
-// const directories = {'blips': null, 'logs': null, 'words': null}
-
-// const directories = {
-//     'blips': join(process.cwd(), `data/blips`),
-//     'logs': join(process.cwd(), `data/logs`),
-//     'words': join(process.cwd(), `data/words`)
-// }
-// Object.keys(directories).forEach(d => directories[d] = loadDirectory(d))
+// Since the directories are loaded
+// dynamically be sure to load them in vercel.json
+// https://vercel.com/docs/runtimes#advanced-usage/technical-details/including-additional-files
 
 function loadDirectory(dir) {
     return join(process.cwd(), `data/${dir}`)
 }
-
-// function getDirectory(dir) {
-//     return directories[dir]
-// }
 
 export default class Api {
     constructor(directory) {
