@@ -26,7 +26,17 @@ export default function Map({waypoints}) {
         <>
             <link href='https://unpkg.com/maplibre-gl@1.15.2/dist/maplibre-gl.css' rel='stylesheet'/>
 
-            <div className="map-wrap">
+            <div className="map-wrap text-black">
+                <div className="p-2 fixed top-4 ml-2 z-10 rounded-md bg-gray-300/80 text-xs text-center justify-center">
+                    <div>
+                        Click a {' '}
+                        <span className="font-bold">Waypoint</span>{' '}
+                        <span className="inline-block self-center rounded-lg bg-[#FF6347BF] w-[10px] h-[10px]"/>{' '}
+                        or <span className="font-bold">Mile Marker</span> {' '}
+                        <span className="inline-block self-center rounded-lg bg-[#00000080] w-[10px] h-[10px]"/>{' '}
+                        <div>for more information.</div>
+                    </div>
+                </div>
                 <div ref={mapContainer} className="map"/>
             </div>
         </>

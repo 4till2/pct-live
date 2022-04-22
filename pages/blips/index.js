@@ -1,21 +1,20 @@
+import {BlipList} from "components";
 import {NextSeo} from "next-seo";
-// import {api} from "pages/api/logs";
-import LogList from "../../components/logs/logList";
 import Api from "../../lib/apiClass";
 
-const api = new Api("data/logs")
+const api = new Api("data/blips")
 
-export default function Logs({allPosts}) {
+export default function Blips({allPosts}) {
     return (
         <>
             <NextSeo
-                title="Logs – 4till2"
-                description="Logs – 4till2"
+                title="Words - 4till2"
+                description="Just some thoughts"
                 openGraph={{
-                    site_name: "Logs – 4till2",
-                    title: "Logs – 4till2",
+                    site_name: "Blips - 4till2",
+                    title: "Blips - 4till2",
                     description:
-                        "Logs – 4till2",
+                        "Just some thoughts.",
                 }}
                 twitter={{
                     handle: "@4till2",
@@ -24,7 +23,7 @@ export default function Logs({allPosts}) {
                 }}
             />
 
-            <LogList allPosts={allPosts}/>
+            <BlipList data={allPosts}/>
         </>
     );
 }
@@ -38,8 +37,8 @@ export async function getStaticProps() {
         "author",
         "image",
         "excerpt",
-        "content",
-        "icon",
+        "external",
+        "content"
     ]);
 
     return {

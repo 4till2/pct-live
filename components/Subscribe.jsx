@@ -29,23 +29,23 @@ const Subscribe = ({buttonText, keepLeft}) => {
                                     return true
                                 }}
                             >
-                                <div className="mt-4">
+                                <div className="">
                                     <div
                                         className={`${keepLeft} mx-auto max-w-lg sm:flex sm:overflow-hidden`}
                                     >
-                                        <input
-                                            id="email-input"
-                                            placeholder="me@email.com"
-                                            ref={emailRef}
-                                            type="email"
-                                            name="email"
-                                            className="mb-4 w-full bg-transparent dark:bg-[#111] outline-none
-                                    appearance-none"
-                                        ></input>
+                                    {/*    <input*/}
+                                    {/*        id="email-input"*/}
+                                    {/*        placeholder="me@email.com"*/}
+                                    {/*        ref={emailRef}*/}
+                                    {/*        type="email"*/}
+                                    {/*        name="email"*/}
+                                    {/*        className="mb-4 w-full bg-transparent dark:bg-[#111] outline-none*/}
+                                    {/*appearance-none"*/}
+                                    {/*    ></input>*/}
                                         <button
                                             className="items-center w-full px-4 py-[5px] mb-2
                       transition-all duration-150 ease-in-out rounded-lg 
-                       bg-black text-white 
+                       bg-black text-white
                       dark:bg-white dark:text-black"
                                             type="submit"
                                             value="subscribe"

@@ -6,10 +6,10 @@ export default function MetaDetails({metadata}) {
                 {Object.entries(metadata.details).map((met) => (
                     <div
                         key={met[0]}
-                        className="grid font-mono p-1.5 rounded-md border border-gray-500 whitespace-nowrap"
+                        className="grid font-light p-1.5  border-b border-t border-gray-300 whitespace-nowrap"
                     >
-                        <p className="capitalize text-gray-500 text-sm">{met[0].replace('_', ' ')}</p>
-                        <p>{met[1]}</p>
+                        <p className="capitalize font-thin text-gray-500 text-sm">{met[0].replace('_', ' ')}</p>
+                        <p className="text-gray-500 dark:text-gray-500">{met[1]}</p>
                     </div>
                 ))}
             </div>

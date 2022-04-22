@@ -1,14 +1,14 @@
-import WordCard from "./wordCard";
+import BlipCard from "./blipCard";
 
-export default function WordsGallery({words}) {
+export default function BlipsGallery({blips}) {
     return (
         <>
-            <div className="flex w-full flex-row flex-wrap ">
+            <div className="flex w-full flex-row flex-wrap">
                 {
-                    words.map(p => {
+                    blips.map(p => {
                         return (
                             <div key={p.slug} className="w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 p-2 break-words">
-                                <WordCard post={p}/>
+                                <BlipCard post={p}/>
                             </div>
                         )
                     })

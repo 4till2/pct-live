@@ -1,6 +1,4 @@
 import {NextSeo} from "next-seo";
-import {getAllPosts as getAllWords} from "pages/api/words";
-import {getAllPosts as getAllLogs} from "pages/api/logs";
 import {loadFromAlbum} from "../../lib/google_photos";
 import {groupByDate, groupPhotosByDate} from "../../lib/group_by_date";
 import moment from "moment";
@@ -8,6 +6,8 @@ import LogCard from "../../components/logs/logCard";
 import classnames from "classnames";
 import PhotoGallery from "../../components/photos/gallery";
 import WordsGallery from "../../components/words/gallery";
+import Api from "../../lib/apiClass";
+import BlipsGallery from "../../components/blips/gallery";
 
 export default function Timeline({timeline}) {
     return (
@@ -37,18 +37,21 @@ export default function Timeline({timeline}) {
             />
             {timeline.map(day => {
                 return (
-                    <div key={day.date} className="my-2 py-2 border-b border-dashed border-gray-200 dark:border-gray-800">
+                    <div key={day.date}
+                         className="my-2 py-2 border-b border-dashed border-gray-200 dark:border-gray-800">
                         <h1 className="text-3xl font-bold text-gray-400 dark:text-gray-600 mb-2">{moment(day.date).format('MMMM Do YYYY')}</h1>
                         <div className="w-full">
                             {
                                 day?.logs?.map(src => {
-                                    return <div key={src.slug}><LogCard post={src}/></div>
+                                    return <div key={src.slug} className="p-2"><LogCard post={src}/></div>
                                 })
                             }
                         </div>
                         <div className="w-full">
                             {day.words && <WordsGallery words={day.words}/>}
-
+                        </div>
+                        <div className="w-full">
+                            {day.blips && <BlipsGallery blips={day.blips}/>}
                         </div>
                         <div className="w-full">
                             {day.photos && <PhotoGallery photos={day.photos}/>}
@@ -63,8 +66,21 @@ export default function Timeline({timeline}) {
 }
 
 export async function getServerSideProps() {
+    const wordsApi = new Api("data/words")
+    const logsApi = new Api("data/logs")
+    const blipsApi = new Api("data/blips")
+
     let albums = await loadFromAlbum(process.env.GOOGLE_ALBUM_ID).then(res => groupPhotosByDate(res)) || {}
-    let words = groupByDate(getAllWords([
+    let blips = groupByDate(blipsApi.getAllPosts([
+        "title",
+        "date",
+        "slug",
+        "author",
+        "excerpt",
+        "external",
+        "content"
+    ])) || {}
+    let words = groupByDate(wordsApi.getAllPosts([
         "title",
         "date",
         "slug",
@@ -72,7 +88,7 @@ export async function getServerSideProps() {
         "excerpt",
         "external",
     ])) || {}
-    let logs = groupByDate(getAllLogs([
+    let logs = groupByDate(logsApi.getAllPosts([
         "title",
         "date",
         "slug",
@@ -81,9 +97,9 @@ export async function getServerSideProps() {
         "excerpt",
         "content"
     ])) || {}
-    let keys = [...Object.keys(albums), ...Object?.keys(words), ...Object?.keys(logs)].filter((v, i, a) => a.indexOf(v) === i).sort().reverse()
+    let keys = [...Object.keys(albums),...Object.keys(blips), ...Object?.keys(words), ...Object?.keys(logs)].filter((v, i, a) => a.indexOf(v) === i).sort().reverse()
     const timeline = keys.map(key => {
-        return {date: key, photos: albums[key] || null, words: words[key] || null, logs: logs[key] || null}
+        return {date: key, blips: blips[key] || null, photos: albums[key] || null, words: words[key] || null, logs: logs[key] || null}
     })
     return {
         props: {timeline},

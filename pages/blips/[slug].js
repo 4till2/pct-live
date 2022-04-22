@@ -1,14 +1,13 @@
 import { useRouter } from "next/router";
-import { LogList, LogContent } from "components";
+import md2html from "lib/md2html";
+import { BlipList, BlipContent } from "components";
 import { NextSeo } from "next-seo";
 import Api from "../../lib/apiClass";
-import md2html from "lib/md2html";
 
-const api = new Api("data/logs")
+const api = new Api("data/blips")
 
-export default function Post({ allPosts, post }) {
+export default function Post({ allPosts, post, morePosts, preview }) {
   const router = useRouter();
-
   if (!router.isFallback && !post?.slug) {
     return <div>Error</div>;
   }
@@ -16,15 +15,12 @@ export default function Post({ allPosts, post }) {
   return (
     <div className="flex w-full">
       <NextSeo
-        title={`${post.title} - 4till2`}
-        description={
-          post.content.slice(0, 200)?.replace(/<[^>]*>?/gm, "") || ""
-        }
+        title={`${post.content.slice(0, 10)} blip`}
+        description={post.excerpt || post.content.slice(0, 200) || ""}
         openGraph={{
-          site_name: `${post.title} - 4till2`,
-          title: `${post.title} - 4till2`,
-          description:
-            post.content.slice(0, 200)?.replace(/<[^>]*>?/gm, "") || "",
+          site_name: `Blip- 4till2`,
+          title: `${post.content.slice(0, 10)} - 4till2`,
+          description: post.excerpt || post.content.slice(0, 200) || "",
         }}
         twitter={{
           handle: "@4till2",
@@ -32,8 +28,8 @@ export default function Post({ allPosts, post }) {
           cardType: "summary_large_image",
         }}
       />
-      <LogList allPosts={allPosts} activeSlug={post?.slug} />
-      <LogContent post={post} />
+      <BlipList data={allPosts} activeSlug={post?.slug} />
+      <BlipContent post={post} />
     </div>
   );
 }
@@ -48,7 +44,6 @@ export async function getStaticProps({ params }) {
     "excerpt",
     "content",
     "link",
-    "icon",
   ]);
 
   const post = api.getPostBySlug(params.slug, [
@@ -59,10 +54,6 @@ export async function getStaticProps({ params }) {
     "content",
     "excerpt",
     "link",
-    "tech",
-    "web",
-    "ios",
-    "icon",
   ]);
 
   const content = await md2html(post.content || post.excerpt || "");
@@ -79,12 +70,21 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
+  const allPosts = api.getAllPosts([
+    "title",
+    "date",
+    "slug",
+    "image",
+    "excerpt",
+    "content",
+  ]);
   const posts = api.getAllPosts(["slug"]);
 
   return {
     paths: posts.map((post) => {
       return {
         params: {
+          allPosts,
           slug: post.slug,
         },
       };

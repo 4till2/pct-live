@@ -7,7 +7,7 @@ excerpt: 'A collection of resources I found helpful while researching the Pacifi
 ---
 
 Some resources I collected while researching thru-hiking the Pacific Crest Trail. Some are good for pre trip others I intend
-to use on trail
+to use on trail.
 
 ## Pre Trail
 **General Info**

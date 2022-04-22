@@ -1,11 +1,11 @@
 import {loadFromAlbum} from "../lib/google_photos";
-import {getAllPosts as getAllWords} from "./api/words";
-import {getAllPosts as getAllLogs} from "./api/logs";
 import Photo from "../components/photos/Photo";
 import LogCard from "../components/logs/logCard";
 import WordCard from "../components/words/wordCard";
 import Newsletter from "../components/Newsletter";
 import Link from 'next/link'
+import Api from "../lib/apiClass";
+import BlipCard from "../components/blips/blipCard";
 
 export default function Home({latest}) {
     return (
@@ -20,41 +20,48 @@ export default function Home({latest}) {
                         <Link href={"/map"}>
                             <a className="text-gray-500 font-medium hover:text-gray-600">waypoints</a>
                         </Link>,{' '}
-                        <Link href={"/map"}>
-                            <a
-                                className="text-gray-500 font-medium hover:text-gray-600">photos</a>
+                        <Link href={"/timeline"}>
+                            <a className="text-gray-500 font-medium hover:text-gray-600">photos</a>
                         </Link>,{' '}
                         <Link href={"/words"}>
-                            <a
-                                className="text-gray-500 font-medium hover:text-gray-600">notes</a>
+                            <a className="text-gray-500 font-medium hover:text-gray-600">notes</a>
+                        </Link>, {' '}
+                        <Link href={"/blips"}>
+                            <a className="text-gray-500 font-medium hover:text-gray-600">thoughts</a>
                         </Link>, and {' '}
                         <Link href={'/logs'}>
                             <a className="text-gray-500 font-medium hover:text-gray-600">logs</a>
                         </Link> from my 2022{' '}
-                        <Link href="https://en.wikipedia.org/wiki/Pacific_Crest_Trail">
+                        <Link href="https://en.wikipedia.org/wiki/Pacific_Crest_Trail" target="_blank">
                             <a className="text-gray-500 font-medium hover:text-gray-600">Pacific Crest Trail</a>
                         </Link> thru hike.
                     </p>
                 </div>
 
-                <h2 className="text-xl font-black text-gray-500">Latest</h2>
-                <div className="grid lg:grid-cols-3 gap-2">
-                    {latest.photo &&
-                    <div className="max-w-[100px] lg:max-w-full items-center my-1 rounded overflow-hidden"><Photo
-                        src={latest.photo.baseUrl}
-                        width={latest.photo.mediaMetadata.width}
-                        height={latest.photo.mediaMetadata.height}
-                        description={latest.photo.description}
-                    /></div>
-                    }
-
-                    <div className="">
+                <h2 className="text-xl tracking-wide font-light text-gray-500 text-center">Most Recent</h2>
+                <div className="flex w-full flex-row flex-wrap ">
+                    <div className="w-full p-2 break-words">
                         {latest.log && <LogCard post={latest.log}/>}
                     </div>
-                    <div className="">
+                    <div className="w-1/2 md:w-1/3  p-2 break-words">
+                        {latest.blip && <BlipCard post={latest.blip}/>}
+                    </div>
+                    <div className="w-1/2 md:w-1/3  p-2 break-words">
                         {latest.word && <WordCard post={latest.word}/>}
                     </div>
-
+                    <div className="w-1/2 md:w-1/3  p-2 break-words">
+                        {latest.photo &&
+                        <div className=" items-center rounded overflow-hidden"><Photo
+                            src={latest.photo.baseUrl}
+                            width={latest.photo.mediaMetadata.width}
+                            height={latest.photo.mediaMetadata.height}
+                            description={latest.photo.description}
+                        /></div>
+                        }
+                    </div>
+                    <Link href={"/timeline"}>
+                        <a className="text-gray-500 w-full font-medium hover:text-gray-600 text-center font-bold">See All</a>
+                    </Link>
                 </div>
                 <div className="mt-8 mb-8 text-gray-500 text-center">
                     ________________________________
@@ -75,8 +82,12 @@ export default function Home({latest}) {
 }
 
 export async function getServerSideProps() {
+    const wordsApi = new Api("data/words")
+    const logsApi = new Api("data/logs")
+    const blipsApi = new Api("data/blips")
+
     let photo = await loadFromAlbum(process.env.GOOGLE_ALBUM_ID).then(res => res ? res[res.length - 1] : {}) || {}
-    let word = getAllWords([
+    let word = wordsApi.getAllPosts([
         "title",
         "date",
         "slug",
@@ -84,7 +95,7 @@ export async function getServerSideProps() {
         "excerpt",
         "external",
     ])[0] || {}
-    let log = getAllLogs([
+    let blip = blipsApi.getAllPosts([
         "title",
         "date",
         "slug",
@@ -93,7 +104,16 @@ export async function getServerSideProps() {
         "excerpt",
         "content"
     ])[0] || {}
-    const latest = {photo: photo, word: word, log: log}
+    let log = logsApi.getAllPosts([
+        "title",
+        "date",
+        "slug",
+        "author",
+        "image",
+        "excerpt",
+        "content"
+    ])[0] || {}
+    const latest = {photo: photo, blip: blip, word: word, log: log}
     return {
         props: {latest},
     };

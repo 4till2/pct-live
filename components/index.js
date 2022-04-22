@@ -1,7 +1,9 @@
 import Sidebar from "./sidebar";
-import WordsList from "./words/wordsList";
+import BlipList from "./blips/blipList";
+import BlipContent from "./blips/blipContent";
+import WordList from "./words/wordList";
 import WordContent from "./words/wordContent";
 import LogList from "./logs/logList";
 import LogContent from "./logs/logContent";
 
-export {Sidebar, WordsList, WordContent, LogContent, LogList};
+export {Sidebar, BlipList, BlipContent, LogContent, LogList, WordContent, WordList};

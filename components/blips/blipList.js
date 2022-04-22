@@ -1,9 +1,9 @@
 import Link from "next/link";
 import classnames from "classnames";
 import { ExternalLinkIcon } from "lib/icons";
-import dayjs from "dayjs";
+import moment from "moment";
 
-export default function WordsList({ data, activeSlug }) {
+export default function BlipList({ data, activeSlug }) {
   return (
     <div
       className={classnames(
@@ -11,13 +11,16 @@ export default function WordsList({ data, activeSlug }) {
         { "hidden lg:flex flex-col": activeSlug != undefined }
       )}
     >
-      <div className="px-4 py-2 mb-2 text-sm text-gray-500 border-b border-gray-100  dark:border-gray-800">
-        Words
+      <div className="px-4 py-2 mb-2 font-black text-gray-500 border-b border-gray-100  dark:border-gray-800 text-xl">
+        Blips
+        <p className="text-sm text-gray-400 font-light dark:text-gray-600">
+          Thoughts, ideas, and brain farts.
+        </p>
       </div>
       {data?.map((post) => {
         if (post.slug === "" || post.slug.includes("DS_Store")) return;
         return (
-          <Link href={`/words/${post.slug}`} key={post.slug}>
+          <Link href={`/blips/${post.slug}`} key={post.slug}>
             <a>
               <article
                 className={classnames(
@@ -38,7 +41,10 @@ export default function WordsList({ data, activeSlug }) {
                   ) : (
                     ""
                   )}
-                  {post?.title}
+                  <div
+                      dangerouslySetInnerHTML={{__html: post?.content}}
+                      className="inline-block mx-auto post-content line-clamp-2"
+                  />
                 </h2>
                 <p
                   className={classnames(
@@ -51,8 +57,8 @@ export default function WordsList({ data, activeSlug }) {
                     }
                   )}
                 >
-                  {/* {post?.excerpt?.slice(0, 100)} */}
-                  {dayjs(post?.date?.split(" ")[0]).format("MMMM D, YYYY")}
+
+                  {moment(post.date).format('MMMM Do YYYY, h:mm a')}
                 </p>
               </article>
             </a>

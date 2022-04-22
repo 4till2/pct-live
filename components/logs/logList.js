@@ -15,8 +15,11 @@ export default function LogList({allPosts, activeSlug}) {
                 {"hidden lg:flex flex-col": slug != undefined}
             )}
         >
-            <div className="px-4 py-2 mb-2 text-sm text-gray-500 border-b border-gray-100 dark:border-gray-800">
+            <div className="px-4 py-2 mb-2 font-black text-gray-500 border-b border-gray-100  dark:border-gray-800 text-xl">
                 Logs
+                <p className="text-sm text-gray-400 font-light dark:text-gray-600">
+                    Regular status updates and metadata.
+                </p>
             </div>
             {allPosts?.map((post) => (
                 <Link href={`/logs/${post.slug}`} key={post.slug}>

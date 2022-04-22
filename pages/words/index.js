@@ -1,6 +1,8 @@
-import { WordsList } from "components";
-import { getAllPosts } from "pages/api/words";
 import { NextSeo } from "next-seo";
+import WordList from "../../components/words/wordList";
+import Api from "../../lib/apiClass";
+
+const api = new Api("data/words")
 
 export default function Words({ allPosts }) {
   return (
@@ -21,13 +23,13 @@ export default function Words({ allPosts }) {
         }}
       />
 
-      <WordsList data={allPosts} />
+      <WordList data={allPosts} />
     </>
   );
 }
 
 export async function getStaticProps() {
-  const allPosts = getAllPosts([
+  const allPosts = api.getAllPosts([
     "title",
     "date",
     "slug",

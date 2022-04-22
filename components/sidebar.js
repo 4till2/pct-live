@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import Link from "next/link";
 import {useRouter} from "next/router";
 import {
+    BlipIcon,
     BlogIcon,
     EmailIcon,
     ExternalLinkIcon, GuestIcon,
@@ -47,6 +48,12 @@ export default function Sidebar() {
             url: "/words",
             icon: BlogIcon,
             active: pathname.includes("/words"),
+        },
+        {
+            title: "Blips",
+            url: "/blips",
+            icon: BlipIcon,
+            active: pathname === "/blips",
         },
         {
             title: "Logs",
@@ -163,7 +170,7 @@ export default function Sidebar() {
             </aside>
             <nav className="fixed bottom-0 left-0 z-10 block w-full p-2 md:hidden">
                 <div
-                    className="border border-gray-200 rounded-lg bg-white/70 backdrop-filter backdrop-blur dark:bg-gray-900/50 dark:border-gray-700">
+                    className="border border-gray-200 rounded-lg bg-white/80 backdrop-filter backdrop-blur dark:bg-gray-900/80 dark:border-gray-700">
                     <div
                         className="py-2 text-center cursor-pointer"
                         onClick={() => showMobileNav(!mobileNav)}
