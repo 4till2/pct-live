@@ -1,4 +1,5 @@
 /.obsidian/**
+/_obsidian/**
 .env.local
 .DS_Store
 # next.js build output
