@@ -20,7 +20,7 @@ export default function Home({latest}) {
                         <Link href={"/map"}>
                             <a className="text-gray-500 font-medium hover:text-gray-600">waypoints</a>
                         </Link>,{' '}
-                        <Link href={"/timeline"}>
+                        <Link href={"/albums"}>
                             <a className="text-gray-500 font-medium hover:text-gray-600">photos</a>
                         </Link>,{' '}
                         <Link href={"/words"}>
