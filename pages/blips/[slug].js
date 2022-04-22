@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import md2html from "lib/md2html";
 import { BlipList, BlipContent } from "components";
 import { NextSeo } from "next-seo";
-import Api from "../../lib/apiClass";
+import Api from "../api/apiClass";
 
 const api = new Api("data/blips")
 

@@ -1,6 +1,6 @@
 import {BlipList} from "components";
 import {NextSeo} from "next-seo";
-import Api from "../../lib/apiClass";
+import Api from "../api/apiClass";
 
 const api = new Api("data/blips")
 

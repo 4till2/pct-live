@@ -1,7 +1,7 @@
 import {NextSeo} from "next-seo";
 // import {api} from "pages/api/logs";
 import LogList from "../../components/logs/logList";
-import Api from "../../lib/apiClass";
+import Api from "../api/apiClass";
 
 const api = new Api("data/logs")
 

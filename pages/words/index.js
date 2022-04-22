@@ -1,6 +1,6 @@
 import { NextSeo } from "next-seo";
 import WordList from "../../components/words/wordList";
-import Api from "../../lib/apiClass";
+import Api from "../api/apiClass";
 
 const api = new Api("data/words")
 

@@ -4,7 +4,7 @@ import LogCard from "../components/logs/logCard";
 import WordCard from "../components/words/wordCard";
 import Newsletter from "../components/Newsletter";
 import Link from 'next/link'
-import Api from "../lib/apiClass";
+import Api from "./api/apiClass";
 import BlipCard from "../components/blips/blipCard";
 
 export default function Home({latest}) {

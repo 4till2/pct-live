@@ -6,7 +6,7 @@ import LogCard from "../../components/logs/logCard";
 import classnames from "classnames";
 import PhotoGallery from "../../components/photos/gallery";
 import WordsGallery from "../../components/words/gallery";
-import Api from "../../lib/apiClass";
+import Api from "../api/apiClass";
 import BlipsGallery from "../../components/blips/gallery";
 
 export default function Timeline({timeline}) {

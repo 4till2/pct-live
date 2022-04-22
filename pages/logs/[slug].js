@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { LogList, LogContent } from "components";
 import { NextSeo } from "next-seo";
-import Api from "../../lib/apiClass";
+import Api from "../api/apiClass";
 import md2html from "lib/md2html";
 
 const api = new Api("data/logs")
