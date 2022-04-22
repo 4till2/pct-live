@@ -45,7 +45,7 @@ export async function getServerSideProps({params, query}) {
         "slug",
     ]);
     const album = allPosts.filter(a => a.slug == params.slug)[0]
-    let photos = await loadFromAlbumByTitle(album.title)
+    let photos = (await loadFromAlbumByTitle(album.title))?.reverse()
     return {
         props: {
             allPosts,
