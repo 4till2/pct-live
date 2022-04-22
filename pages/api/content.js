@@ -2,9 +2,13 @@ import fs from "fs";
 import {join} from "path";
 import matter from "gray-matter";
 
+function getDirectory(dir) {
+    return join(process.cwd(), dir)
+}
+
 export default class Api {
-    constructor(directoryPath) {
-        this.directory =  join(process.cwd(), directoryPath);
+    constructor(directory) {
+        this.directory = getDirectory(directory);
     }
 
     getPostSlugs() {

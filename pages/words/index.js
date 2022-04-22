@@ -1,8 +1,8 @@
 import { NextSeo } from "next-seo";
 import WordList from "../../components/words/wordList";
-import Api from "../api/apiClass";
+import Api from "../api/content";
 
-const api = new Api("data/words")
+const api = new Api("words")
 
 export default function Words({ allPosts }) {
   return (

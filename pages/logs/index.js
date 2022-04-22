@@ -1,9 +1,9 @@
 import {NextSeo} from "next-seo";
 // import {api} from "pages/api/logs";
 import LogList from "../../components/logs/logList";
-import Api from "../api/apiClass";
+import Api from "../api/content";
 
-const api = new Api("data/logs")
+const api = new Api("logs")
 
 export default function Logs({allPosts}) {
     return (

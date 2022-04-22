@@ -6,7 +6,7 @@ import LogCard from "../../components/logs/logCard";
 import classnames from "classnames";
 import PhotoGallery from "../../components/photos/gallery";
 import WordsGallery from "../../components/words/gallery";
-import Api from "../api/apiClass";
+import Api from "../api/content";
 import BlipsGallery from "../../components/blips/gallery";
 
 export default function Timeline({timeline}) {
@@ -66,9 +66,9 @@ export default function Timeline({timeline}) {
 }
 
 export async function getServerSideProps() {
-    const wordsApi = new Api("data/words")
-    const logsApi = new Api("data/logs")
-    const blipsApi = new Api("data/blips")
+    const wordsApi = new Api("words")
+    const logsApi = new Api("logs")
+    const blipsApi = new Api("blips")
 
     let albums = await loadFromAlbum(process.env.GOOGLE_ALBUM_ID).then(res => groupPhotosByDate(res)) || {}
     let blips = groupByDate(blipsApi.getAllPosts([

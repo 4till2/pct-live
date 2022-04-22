@@ -4,7 +4,7 @@ import LogCard from "../components/logs/logCard";
 import WordCard from "../components/words/wordCard";
 import Newsletter from "../components/Newsletter";
 import Link from 'next/link'
-import Api from "./api/apiClass";
+import Api from "./api/content";
 import BlipCard from "../components/blips/blipCard";
 
 export default function Home({latest}) {
@@ -82,9 +82,9 @@ export default function Home({latest}) {
 }
 
 export async function getServerSideProps() {
-    const wordsApi = new Api("data/words")
-    const logsApi = new Api("data/logs")
-    const blipsApi = new Api("data/blips")
+    const wordsApi = new Api("words")
+    const logsApi = new Api("logs")
+    const blipsApi = new Api("blips")
 
     let photo = await loadFromAlbum(process.env.GOOGLE_ALBUM_ID).then(res => res ? res[res.length - 1] : {}) || {}
     let word = wordsApi.getAllPosts([

@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
 import { LogList, LogContent } from "components";
 import { NextSeo } from "next-seo";
-import Api from "../api/apiClass";
+import Api from "../api/content";
 import md2html from "lib/md2html";
 
-const api = new Api("data/logs")
+const api = new Api("logs")
 
 export default function Post({ allPosts, post }) {
   const router = useRouter();

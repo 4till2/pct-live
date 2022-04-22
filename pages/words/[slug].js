@@ -2,9 +2,9 @@ import {useRouter} from "next/router";
 import md2html from "lib/md2html";
 import {WordContent, WordList} from "components";
 import {NextSeo} from "next-seo";
-import Api from "../api/apiClass";
+import Api from "../api/content";
 
-const api = new Api("data/words")
+const api = new Api("words")
 
 export default function Post({allPosts, post, morePosts, preview}) {
     const router = useRouter();

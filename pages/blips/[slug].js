@@ -2,9 +2,9 @@ import { useRouter } from "next/router";
 import md2html from "lib/md2html";
 import { BlipList, BlipContent } from "components";
 import { NextSeo } from "next-seo";
-import Api from "../api/apiClass";
+import Api from "../api/content";
 
-const api = new Api("data/blips")
+const api = new Api("blips")
 
 export default function Post({ allPosts, post, morePosts, preview }) {
   const router = useRouter();
