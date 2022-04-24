@@ -11,7 +11,7 @@ import {
     InstagramIcon,
     LogIcon,
     MapIcon,
-    MoonIcon,
+    MoonIcon, RssIcon,
     SunIcon,
     TimelineIcon,
     TwitterIcon,
@@ -89,7 +89,12 @@ export default function Sidebar() {
             icon: TwitterIcon,
             external: true,
         },
-
+        {
+            title: "Rss",
+            url: `/rss/feed.xml`,
+            icon: RssIcon,
+            external: false,
+        },
         {
             title: "Email",
             url: `mailto:yo@4till2.com`,

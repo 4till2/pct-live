@@ -7,6 +7,7 @@ import Link from 'next/link'
 import Api from "./api/content";
 import BlipCard from "../components/blips/blipCard";
 import {site_config} from "../config";
+import {generateRssFeed} from "../lib/buildRssFeed";
 
 export default function Home({latest}) {
     return (
@@ -84,6 +85,7 @@ export default function Home({latest}) {
 }
 
 export async function getServerSideProps() {
+    await generateRssFeed();
     const wordsApi = new Api("words")
     const logsApi = new Api("logs")
     const blipsApi = new Api("blips")

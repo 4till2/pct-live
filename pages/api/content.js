@@ -13,6 +13,7 @@ function loadDirectory(dir) {
 export default class Api {
     constructor(directory) {
         this.directory = loadDirectory(directory);
+        this.path = directory
     }
 
     getDataSlugs() {
@@ -35,12 +36,15 @@ export default class Api {
                 if (field === "content") {
                     items[field] = content;
                 }
+                if (field === "path") {
+                    items[field] = this.path;
+                }
                 if (typeof data[field] !== "undefined") {
                     items[field] = data[field];
                 }
             });
         } else {
-            items = {'slug': realSlug, 'content': content, ...data}
+            items = {'slug': realSlug, 'path': this.path, 'content': content, ...data}
         }
 
         return items;
