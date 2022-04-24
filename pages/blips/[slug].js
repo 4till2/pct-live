@@ -58,14 +58,7 @@ export async function getStaticProps({params}) {
 }
 
 export async function getStaticPaths() {
-    const allData = api.getAllData([
-        "title",
-        "date",
-        "slug",
-        "image",
-        "excerpt",
-        "content",
-    ]);
+    const allData = api.getAllData();
     const data = api.getAllData(["slug"]);
 
     return {

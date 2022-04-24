@@ -24,22 +24,24 @@ export default class Api {
         const fullPath = join(this.directory, `${realSlug}.md`);
         const fileContents = fs.readFileSync(fullPath, "utf8");
         const {data, content} = matter(fileContents);
-        const items = {};
+        let items = {};
 
-        // Ensure only the minimal needed data is exposed
-        fields.forEach((field) => {
-            if (field === "slug") {
-                items[field] = realSlug;
-            }
-            if (field === "content") {
-                items[field] = content;
-            }
-
-            if (typeof data[field] !== "undefined") {
-                items[field] = data[field];
-            }
-            items["metadata"] = {...data}
-        });
+        // If fields are specified only return those, otherwise return all fields.
+        if (fields.length) {
+            fields.forEach((field) => {
+                if (field === "slug") {
+                    items[field] = realSlug;
+                }
+                if (field === "content") {
+                    items[field] = content;
+                }
+                if (typeof data[field] !== "undefined") {
+                    items[field] = data[field];
+                }
+            });
+        } else {
+            items = {'slug': realSlug, 'content': content, ...data}
+        }
 
         return items;
     }

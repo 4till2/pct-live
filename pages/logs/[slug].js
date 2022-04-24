@@ -26,32 +26,8 @@ export default function Data({allData, data}) {
 }
 
 export async function getStaticProps({params}) {
-    const allData = api.getAllData([
-        "title",
-        "date",
-        "slug",
-        "author",
-        "image",
-        "excerpt",
-        "content",
-        "link",
-        "icon",
-    ]);
-
-    const data = api.getDataBySlug(params.slug, [
-        "title",
-        "date",
-        "slug",
-        "image",
-        "content",
-        "excerpt",
-        "link",
-        "tech",
-        "web",
-        "ios",
-        "icon",
-    ]);
-
+    const allData = api.getAllData();
+    const data = api.getDataBySlug(params.slug);
     const content = await md2html(data.content || data.excerpt || "");
 
     return {

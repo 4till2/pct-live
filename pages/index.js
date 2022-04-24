@@ -1,4 +1,4 @@
-import {albumsByTitles} from "../lib/google_photos";
+import {albumsByTitles} from "../lib/services/google_photos";
 import Photo from "../components/photos/Photo";
 import LogCard from "../components/logs/logCard";
 import WordCard from "../components/words/wordCard";
@@ -89,32 +89,9 @@ export async function getServerSideProps() {
     const blipsApi = new Api("blips")
 
     let photo = await albumsByTitles(site_config.timeline_albums).then(res => res ? res[res.length - 1] : null) || null
-    let word = wordsApi.getAllData([
-        "title",
-        "date",
-        "slug",
-        "author",
-        "excerpt",
-        "external",
-    ])[0] || null
-    let blip = blipsApi.getAllData([
-        "title",
-        "date",
-        "slug",
-        "author",
-        "image",
-        "excerpt",
-        "content"
-    ])[0] || null
-    let log = logsApi.getAllData([
-        "title",
-        "date",
-        "slug",
-        "author",
-        "image",
-        "excerpt",
-        "content"
-    ])[0] || null
+    let word = wordsApi.getAllData()[0] || null
+    let blip = blipsApi.getAllData()[0] || null
+    let log = logsApi.getAllData()[0] || null
     const latest = {photo: photo, blip: blip, word: word, log: log}
     return {
         props: {latest},

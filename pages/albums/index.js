@@ -16,11 +16,8 @@ export default function Albums({allData}) {
 }
 
 export async function getStaticProps() {
+    const allData = api.getAllData();
 
-    const allData = api.getAllData([
-        "title",
-        "slug"
-    ]);
     return {
         props: {allData},
     };

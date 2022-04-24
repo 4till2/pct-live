@@ -1,9 +1,9 @@
 export default function MetaDetails({metadata}) {
-    if (!metadata) return
+    if (!metadata) return <></>
     return (
         <div className="flex overflow-x-scroll flex flex-row snap-x w-full space-x-4 text-md mb-1">
             <div className="grid grid-flow-col grid-rows-1 gap-x-2">
-                {Object.entries(metadata.details).map((met) => (
+                {Object.entries(metadata).map((met) => (
                     <div
                         key={met[0]}
                         className="grid font-light p-1.5  border-b border-t border-gray-300 whitespace-nowrap"

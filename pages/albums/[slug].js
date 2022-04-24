@@ -1,6 +1,6 @@
 import {useRouter} from "next/router";
 import Api from "../api/content";
-import {albumByTitle} from "../../lib/google_photos";
+import {albumByTitle} from "../../lib/services/google_photos";
 import AlbumList from "../../components/photos/albumList";
 import AlbumContent from "../../components/photos/albumContent";
 import Seo from "../../components/Seo";
@@ -27,13 +27,11 @@ export default function Data({allData, slug, data}) {
 }
 
 export async function getServerSideProps({params, query}) {
-    const allData = api.getAllData([
-        "title",
-        "slug",
-    ]);
+    const allData = api.getAllData();
     // Get album title from data slug
     const album = allData.filter(a => a.slug == params.slug)[0]
     let photos = (await albumByTitle(album.title))?.reverse() || {}
+
     return {
         props: {
             allData,

@@ -1,4 +1,4 @@
-import {albumsByTitles} from "../../lib/google_photos";
+import {albumsByTitles} from "../../lib/services/google_photos";
 import {groupByDate, groupPhotosByDate} from "../../lib/group_by_date";
 import moment from "moment";
 import LogCard from "../../components/logs/logCard";
@@ -60,32 +60,9 @@ export async function getServerSideProps() {
     const blipsApi = new Api("blips")
 
     let albums = await albumsByTitles(site_config.timeline_albums).then(res => groupPhotosByDate(res)) || {}
-    let blips = groupByDate(blipsApi.getAllData([
-        "title",
-        "date",
-        "slug",
-        "author",
-        "excerpt",
-        "external",
-        "content"
-    ])) || {}
-    let words = groupByDate(wordsApi.getAllData([
-        "title",
-        "date",
-        "slug",
-        "author",
-        "excerpt",
-        "external",
-    ])) || {}
-    let logs = groupByDate(logsApi.getAllData([
-        "title",
-        "date",
-        "slug",
-        "author",
-        "image",
-        "excerpt",
-        "content"
-    ])) || {}
+    let blips = groupByDate(blipsApi.getAllData()) || {}
+    let words = groupByDate(wordsApi.getAllData()) || {}
+    let logs = groupByDate(logsApi.getAllData()) || {}
     let keys = [...Object.keys(albums), ...Object.keys(blips), ...Object?.keys(words), ...Object?.keys(logs)].filter((v, i, a) => a.indexOf(v) === i).sort().reverse()
     const timeline = keys.map(key => {
         return {

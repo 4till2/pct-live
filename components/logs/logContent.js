@@ -16,7 +16,7 @@ export default function LogContent({data}) {
             <h1 className="text-4xl mb-5 font-black md:text-4xl text-center max-w-[620px] mx-auto">
                 {moment(data.date).format('MMMM Do YYYY, h:mm a')}
             </h1>
-            <MetaDetails metadata={data.metadata}/>
+            <MetaDetails metadata={data.details}/>
             <div
                 dangerouslySetInnerHTML={{__html: data?.content}}
                 className="inline-block mx-auto data-content mt-2"

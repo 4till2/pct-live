@@ -1,5 +1,3 @@
-import {NextSeo} from "next-seo";
-// import {api} from "pages/api/logs";
 import LogList from "../../components/logs/logList";
 import Api from "../api/content";
 import Seo from "../../components/Seo";
@@ -18,17 +16,7 @@ export default function Logs({allData}) {
 }
 
 export async function getStaticProps() {
-
-    const allData = api.getAllData([
-        "title",
-        "date",
-        "slug",
-        "author",
-        "image",
-        "excerpt",
-        "content",
-        "icon",
-    ]);
+    const allData = api.getAllData();
 
     return {
         props: {allData},

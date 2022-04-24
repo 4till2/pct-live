@@ -15,17 +15,7 @@ export default function Blips({allData}) {
 }
 
 export async function getStaticProps() {
-
-    const allData = api.getAllData([
-        "title",
-        "date",
-        "slug",
-        "author",
-        "image",
-        "excerpt",
-        "external",
-        "content"
-    ]);
+    const allData = api.getAllData();
 
     return {
         props: {allData},

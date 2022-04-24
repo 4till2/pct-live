@@ -15,7 +15,7 @@ export default function LogCard({data}) {
                         <span className="text-gray-500">Log &bull; {moment(data.date).format('h:mm A')}</span>
                     </h2>
                 </article>
-                <MetaDetails metadata={data.metadata}/>
+                <MetaDetails metadata={data.details}/>
                 <div
                     dangerouslySetInnerHTML={{__html: data?.content}}
                     className="inline-block data-content text-clip overflow-hidden mt-2 line-clamp-3 text-gray-700 dark:text-gray-300"
