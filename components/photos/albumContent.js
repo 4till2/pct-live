@@ -1,6 +1,7 @@
 import Photo from "./Photo";
 
 export default function AlbumContent({post}) {
+    if (!post.photos.length) return <></>
     return (
         <div
             className="inline-flex flex-col items-center justify-start w-full  px-10 pt-10 pb-32 overflow-y-auto">

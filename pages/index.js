@@ -1,4 +1,4 @@
-import {loadFromAlbumByTitle} from "../lib/google_photos";
+import {albumsByTitles} from "../lib/google_photos";
 import Photo from "../components/photos/Photo";
 import LogCard from "../components/logs/logCard";
 import WordCard from "../components/words/wordCard";
@@ -6,6 +6,7 @@ import Newsletter from "../components/Newsletter";
 import Link from 'next/link'
 import Api from "./api/content";
 import BlipCard from "../components/blips/blipCard";
+import {site_config} from "../config";
 
 export default function Home({latest}) {
     return (
@@ -87,7 +88,7 @@ export async function getServerSideProps() {
     const logsApi = new Api("logs")
     const blipsApi = new Api("blips")
 
-    let photo = await loadFromAlbumByTitle('Pacific Crest Trail').then(res => res ? res[res.length - 1] : {}) || {}
+    let photo = await albumsByTitles(site_config.timeline_albums).then(res => res ? res[res.length - 1] : null) || null
     let word = wordsApi.getAllPosts([
         "title",
         "date",
@@ -95,7 +96,7 @@ export async function getServerSideProps() {
         "author",
         "excerpt",
         "external",
-    ])[0] || {}
+    ])[0] || null
     let blip = blipsApi.getAllPosts([
         "title",
         "date",
@@ -104,7 +105,7 @@ export async function getServerSideProps() {
         "image",
         "excerpt",
         "content"
-    ])[0] || {}
+    ])[0] || null
     let log = logsApi.getAllPosts([
         "title",
         "date",
@@ -113,7 +114,7 @@ export async function getServerSideProps() {
         "image",
         "excerpt",
         "content"
-    ])[0] || {}
+    ])[0] || null
     const latest = {photo: photo, blip: blip, word: word, log: log}
     return {
         props: {latest},

@@ -1,5 +1,5 @@
 import {NextSeo} from "next-seo";
-import {loadFromAlbumByTitle} from "../../lib/google_photos";
+import {albumsByTitles} from "../../lib/google_photos";
 import {groupByDate, groupPhotosByDate} from "../../lib/group_by_date";
 import moment from "moment";
 import LogCard from "../../components/logs/logCard";
@@ -8,6 +8,7 @@ import PhotoGallery from "../../components/photos/gallery";
 import WordsGallery from "../../components/words/gallery";
 import Api from "../api/content";
 import BlipsGallery from "../../components/blips/gallery";
+import {site_config} from "../../config";
 
 export default function Timeline({timeline}) {
     return (
@@ -70,7 +71,7 @@ export async function getServerSideProps() {
     const logsApi = new Api("logs")
     const blipsApi = new Api("blips")
 
-    let albums = await loadFromAlbumByTitle('Pacific Crest Trail').then(res => groupPhotosByDate(res)) || {}
+    let albums = await albumsByTitles(site_config.timeline_albums).then(res => groupPhotosByDate(res)) || {}
     let blips = groupByDate(blipsApi.getAllPosts([
         "title",
         "date",

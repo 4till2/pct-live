@@ -1,7 +1,7 @@
 import {useRouter} from "next/router";
 import {NextSeo} from "next-seo";
 import Api from "../api/content";
-import {loadFromAlbumByTitle} from "../../lib/google_photos";
+import {albumByTitle} from "../../lib/google_photos";
 import AlbumList from "../../components/photos/albumList";
 import AlbumContent from "../../components/photos/albumContent";
 
@@ -45,7 +45,7 @@ export async function getServerSideProps({params, query}) {
         "slug",
     ]);
     const album = allPosts.filter(a => a.slug == params.slug)[0]
-    let photos = (await loadFromAlbumByTitle(album.title))?.reverse()
+    let photos = (await albumByTitle(album.title))?.reverse() || {}
     return {
         props: {
             allPosts,
