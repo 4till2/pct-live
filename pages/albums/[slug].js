@@ -1,9 +1,9 @@
 import {useRouter} from "next/router";
-import {NextSeo} from "next-seo";
 import Api from "../api/content";
 import {albumByTitle} from "../../lib/google_photos";
 import AlbumList from "../../components/photos/albumList";
 import AlbumContent from "../../components/photos/albumContent";
+import Seo from "../../components/Seo";
 
 const api = new Api("albums")
 
@@ -16,23 +16,10 @@ export default function Post({allPosts, slug, post}) {
 
     return (
         <div className="flex w-full">
-            <NextSeo
-                title={`${post.title} - 4till2`}
-                description={
-                    "A photo album"
-                }
-                openGraph={{
-                    site_name: `${post.title} - 4till2`,
-                    title: `${post.title} - 4till2`,
-                    description:
-                        "A photo album"
-                }}
-                twitter={{
-                    handle: "@4till2",
-                    site: "@4till2",
-                    cardType: "summary_large_image",
-                }}
-            />
+            <Seo title={`${post.title} - 4till2`}
+                 description={
+                     "A photo album by Yosef."
+                 }/>
             <AlbumList data={allPosts} activeSlug={slug}/>
             <AlbumContent post={post}/>
         </div>
@@ -44,6 +31,7 @@ export async function getServerSideProps({params, query}) {
         "title",
         "slug",
     ]);
+    // Get album title from data slug
     const album = allPosts.filter(a => a.slug == params.slug)[0]
     let photos = (await albumByTitle(album.title))?.reverse() || {}
     return {

@@ -2,27 +2,15 @@ import {NextSeo} from "next-seo";
 // import {api} from "pages/api/logs";
 import LogList from "../../components/logs/logList";
 import Api from "../api/content";
+import Seo from "../../components/Seo";
 
 const api = new Api("logs")
 
 export default function Logs({allPosts}) {
     return (
         <>
-            <NextSeo
-                title="Logs – 4till2"
-                description="Logs – 4till2"
-                openGraph={{
-                    site_name: "Logs – 4till2",
-                    title: "Logs – 4till2",
-                    description:
-                        "Logs – 4till2",
-                }}
-                twitter={{
-                    handle: "@4till2",
-                    site: "@4till2",
-                    cardType: "summary_large_image",
-                }}
-            />
+            <Seo title="Logs – 4till2"
+                 description="Logs from my journey along the Pacific Crest Trail."/>
 
             <LogList allPosts={allPosts}/>
         </>

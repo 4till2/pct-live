@@ -1,4 +1,9 @@
-
+## Pages
+To create a new Page
+1. Create directory for page data in [/data](/data)
+2. Copy and adjust a page direcotry (Add page with 
+3. Add route to [components/sidebar.js](/components/sidebar.js)
+4. 
 ## Photos
 Create a file in `data/albums` with frontmatter`title: google photos album title`
 

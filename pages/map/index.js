@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import maplibregl from 'maplibre-gl';
 import {addMapBasemap, addMapControls, addMapSources, addMapWaypoints} from "../../lib/map/index";
+import Seo from "../../components/Seo";
 
 export default function Map({waypoints}) {
     const mapContainer = useRef(null);
@@ -25,7 +26,8 @@ export default function Map({waypoints}) {
     return (
         <>
             <link href='https://unpkg.com/maplibre-gl@1.15.2/dist/maplibre-gl.css' rel='stylesheet'/>
-
+            <Seo title="Map – 4till2"
+                 description="A real time map of my journey along the Pacific Crest Trail."/>
             <div className="map-wrap text-black">
                 <div className="p-2 fixed top-4 ml-2 z-10 rounded-md bg-gray-300/80 text-xs text-center justify-center">
                     <div>

@@ -1,28 +1,14 @@
 import {BlipList} from "components";
-import {NextSeo} from "next-seo";
 import Api from "../api/content";
+import Seo from "../../components/Seo";
 
 const api = new Api("blips")
 
 export default function Blips({allPosts}) {
     return (
         <>
-            <NextSeo
-                title="Words - 4till2"
-                description="Just some thoughts"
-                openGraph={{
-                    site_name: "Blips - 4till2",
-                    title: "Blips - 4till2",
-                    description:
-                        "Just some thoughts.",
-                }}
-                twitter={{
-                    handle: "@4till2",
-                    site: "@4till2",
-                    cardType: "summary_large_image",
-                }}
-            />
-
+            <Seo title="Words - 4till2"
+                 description="Just some thoughts from along the way."/>
             <BlipList data={allPosts}/>
         </>
     );

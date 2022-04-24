@@ -1,28 +1,14 @@
-import {NextSeo} from "next-seo";
-// import {api} from "pages/api/logs";
 import Api from "../api/content";
 import AlbumList from "../../components/photos/albumList";
+import Seo from "../../components/Seo";
 
 const api = new Api("albums")
 
 export default function Albums({allPosts}) {
     return (
         <>
-            <NextSeo
-                title="Albums – 4till2"
-                description="Albums – 4till2"
-                openGraph={{
-                    site_name: "Albums – 4till2",
-                    title: "Albums – 4till2",
-                    description:
-                        "Albums – 4till2",
-                }}
-                twitter={{
-                    handle: "@4till2",
-                    site: "@4till2",
-                    cardType: "summary_large_image",
-                }}
-            />
+            <Seo title="Photos - 4till2"
+                 description="Photo albums from the journey."/>
 
             <AlbumList data={allPosts}/>
         </>

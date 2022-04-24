@@ -1,12 +1,12 @@
 import {useRouter} from "next/router";
 import md2html from "lib/md2html";
 import {WordContent, WordList} from "components";
-import {NextSeo} from "next-seo";
 import Api from "../api/content";
+import Seo from "../../components/Seo";
 
 const api = new Api("words")
 
-export default function Post({allPosts, post, morePosts, preview}) {
+export default function Post({allPosts, post}) {
     const router = useRouter();
     if (!router.isFallback && !post?.slug) {
         return <div>Error</div>;
@@ -14,20 +14,7 @@ export default function Post({allPosts, post, morePosts, preview}) {
 
     return (
         <div className="flex w-full">
-            <NextSeo
-                title={`${post.title} - 4till2`}
-                description={post.excerpt || post.content.slice(0, 200) || ""}
-                openGraph={{
-                    site_name: `${post.title} - 4till2`,
-                    title: `${post.title} - 4till2`,
-                    description: post.excerpt || post.content.slice(0, 200) || "",
-                }}
-                twitter={{
-                    handle: "@4till2",
-                    site: "@4till2",
-                    cardType: "summary_large_image",
-                }}
-            />
+            <Seo title={`${post.title} - 4till2`} description={post.excerpt || post.content.slice(0, 200) || ""}/>
             <WordList data={allPosts} activeSlug={post?.slug}/>
             <WordContent post={post}/>
         </div>

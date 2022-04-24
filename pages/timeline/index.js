@@ -1,4 +1,3 @@
-import {NextSeo} from "next-seo";
 import {albumsByTitles} from "../../lib/google_photos";
 import {groupByDate, groupPhotosByDate} from "../../lib/group_by_date";
 import moment from "moment";
@@ -9,6 +8,7 @@ import WordsGallery from "../../components/words/gallery";
 import Api from "../api/content";
 import BlipsGallery from "../../components/blips/gallery";
 import {site_config} from "../../config";
+import Seo from "../../components/Seo";
 
 export default function Timeline({timeline}) {
     return (
@@ -17,25 +17,13 @@ export default function Timeline({timeline}) {
                 "w-full overflow-auto  px-4 pt-6 pb-20 flex-none "
             )}
         >
+            <Seo title="Timeline – 4till2"
+                 description="A timeline of content during my journeys."/>
+
             <span
                 className="text-6xl font-extrabold  flex border-b-2 border-gray-700 border-dashed mb-4 pb-2 text-gray-300 dark:text-gray-300">
                 Timeline
             </span>
-            <NextSeo
-                title="Timeline – 4till2"
-                description="Oh the places to go – 4till2"
-                openGraph={{
-                    site_name: "Timeline – 4till2",
-                    title: "Timeline – 4till2",
-                    description:
-                        "Oh the places to go – 4till2",
-                }}
-                twitter={{
-                    handle: "@4till2",
-                    site: "@4till2",
-                    cardType: "summary_large_image",
-                }}
-            />
             {timeline.map(day => {
                 return (
                     <div key={day.date}
