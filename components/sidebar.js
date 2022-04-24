@@ -175,7 +175,7 @@ export default function Sidebar() {
     return (
         <>
             <aside
-                className="w-full max-w-[250px] md:border-r border-gray-100 h-screen pt-6 pb-10 md:flex flex-col flex-none hidden dark:border-gray-800">
+                className="w-full max-w-[250px] overflow-scroll md:border-r border-gray-100 h-screen pt-6 pb-10 md:flex flex-col flex-none hidden dark:border-gray-800">
                 {renderLinks()}
                 {renderSocials()}
                 {renderPrefs()}
