@@ -2,7 +2,7 @@ import {writeFileSync} from "fs";
 import {globby} from "globby";
 import prettier from "prettier";
 
-async function generate() {
+async function generateSiteMap() {
     const prettierConfig = await prettier.resolveConfig("./.prettierrc.js");
     const pages = await globby([
         "pages/*.js",
@@ -45,4 +45,4 @@ async function generate() {
     writeFileSync("public/sitemap.xml", formatted);
 }
 
-generate();
+export {generateSiteMap}

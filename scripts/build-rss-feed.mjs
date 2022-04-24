@@ -1,4 +1,4 @@
-import Api from "../pages/api/content";
+import Api from "../pages/api/content.mjs";
 import {Feed} from "feed";
 import * as fs from "fs";
 

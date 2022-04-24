@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "node ./scripts/build-sitemap.mjs && next build",
+    "postbuild": "node ./scripts/postbuild.mjs",
     "start": "next start"
   },
   "dependencies": {
