@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://4till2.com</id>
+    <title>4till2 site</title>
+    <updated>2022-04-24T17:23:24.658Z</updated>
+    <generator>Feed for Node.js</generator>
+    <author>
+        <name>4till2</name>
+        <email>yo@4till2.com</email>
+        <uri>https://twitter.com/4till2</uri>
+    </author>
+    <link rel="alternate" href="https://4till2.com"/>
+    <link rel="self" href="https://4till2.com/rss/atom.xml"/>
+    <logo>https://4till2.com/logo.svg</logo>
+    <icon>https://4till2.com/favicon.png</icon>
+    <rights>All rights reserved 2022, 4till2</rights>
+    <entry>
+        <title type="html"><![CDATA[Why I Built This Site]]></title>
+        <id>https://4till2.com/words/why-this-site</id>
+        <link href="https://4till2.com/words/why-this-site"/>
+        <updated>2022-04-21T18:35:45.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>For my forthcoming trip I really wanted to balance the desire to share with that of being untethered.</p>
+</blockquote>
+<p>Not too long ago I thought to myself "I should hike the Pacific Crest Trail". All 2662 miles (4284 km) of it. In not too
+long I will try. Along the way I'm bound for some epic adventures. I'd love for a way to take my family and friends
+along for the journey, digitally that is. There's only one problem. I don't like social media.</p>
+<p>I could probably write an
+essay arguing why but as the great Kevin Malone once said "why say lot word when few do trick". Social media sucks. It
+sucks for the addictive features, it sucks for the self-confidence busters, it sucks for the data lock ins, it sucks for
+the privacy invasions, it sucks for the platform restrictions, it sucks for the hate fueled conversations, and it sucks
+for the information bubbles. But everyone already knows these reasons and figure them an alright price to pay for dank
+meme wars. I get it. There are as many if not more upsides than downsides. But there's a reason social media sucks that
+maybe isn't mentioned as frequently as the others. Social media lacks context.</p>
+<p>Everything shared on social media is a "
+moment". A single photo, story, video, tweet, or even link are all shared in isolation from one another. Yet that's not
+how things actually rarely are. Even a picture of an amazing vacation is greater in context to the previous weeks boring
+desk job. Yet these contextual bits of information are seriously lacking from any popular platform. Ephemeral moments
+competing for our fleeting attention. And all we're left with are particles of thoughts, experiences, and ideas.</p>
+<p>There are certainly good reasons to use these platforms, and I probably will, but for my mental health and intellectual
+curiosity they rarely suffice. In regular life I do just fine as a passive lurker but for my forthcoming trip I really
+wanted to find a way to balance the desire to share with that of being untethered. A simple blog or public photo album
+would be an alright start but still too restrictive. I want to take my family and friends on the
+journey with me. Have them seen the things I'm seeing, understand the challenges ahead and behind, and get to peek into
+the day to day of their PCT thru-hiker. They should be able to ask how many miles did I walk today? What was the
+weather? Where did I start and finish? Who did I meet? What portion of the trail did I tackle? What night camping was
+it? What views did I wake up to? How was all this different from yesterday, or two weeks ago? Where will I be tomorrow
+or two weeks from now? All of these questions are real elements of an experience full of continual context not easily broken down into one off data, tweets, images, or stories.</p>
+<p>My mission with this website is to create a place to share the journey in its continuum. Start to finish, in real time, with all the possible context of the experience itself. So
+I put together this site, a collection of realtime content from my journey, shared automatically in the background to my
+regular activities. 'Waypoints' are fetched from my Garmin tracker, 'Photos' from a Google Photos album, 'Words' my
+notes app, and 'Logs' the result of a Shortcut on my iPhone. It took a few trys to get right, and I fully anticipate
+Uncle Murphy to laugh at all efforts to prevent an implosion on day 1, but for now I'm glad about the results and
+excited to experiment with this form of journaling from the trail!</p>
+<p>Todo: Organize a more in depth explanation of the technical implementations.</p>
+]]></content>
+        <author>
+            <name>4till2</name>
+            <email>yo@4till2.com</email>
+            <uri>https://twitter.com/4till2</uri>
+        </author>
+        <contributor>
+            <name>4till2</name>
+            <email>yo@4till2.com</email>
+            <uri>https://twitter.com/4till2</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Resources for Hiking The Pacific Crest Trail]]></title>
+        <id>https://4till2.com/words/pct-resources</id>
+        <link href="https://4till2.com/words/pct-resources"/>
+        <updated>2022-04-21T17:47:45.000Z</updated>
+        <content type="html"><![CDATA[<p>Some resources I collected while researching thru-hiking the Pacific Crest Trail. Some are good for pre trip others I intend
+to use on trail.</p>
+<h2>Pre Trail</h2>
+<p><strong>General Info</strong></p>
+<ul>
+<li><a href="https://www.pcta.org">Official PCT site</a></li>
+<li><a href="https://www.reddit.com/r/PacificCrestTrail/">Pct Subreddit</a></li>
+</ul>
+<p><strong>Maps</strong></p>
+<ul>
+<li><a href="https://www.google.com/maps/d/u/0/viewer?mid=1UtogyvQzegPXZYLARMCTwckZTRxIOOLf&#x26;ll=41.34499145337969%2C-119.83531350000001&#x26;z=5">Google Map Version</a></li>
+<li><a href="https://arcg.is/1vT1ui0">PCTA Interactive Map</a> (Lots of layers to play around with)</li>
+</ul>
+<p><strong>Gps Data and Trail Notes</strong>
+I used these to learn more about what lies ahead. Practically all apps and maps I came across reference the "Halfmile" field data.</p>
+<ul>
+<li><a href="https://pctmap.net/gps/">Halfmile GPX data</a></li>
+<li><a href="https://pctmap.net/trail-notes/">Halfmile Trail Notes</a></li>
+<li><a href="https://www.arcgis.com/home/search.html?q=owner%3A%22gkeily_PCTA%22&#x26;restrict=false&#x26;sortOrder=desc&#x26;sortField=relevance#content">Awesome collection of Map layers</a></li>
+</ul>
+<p><strong>Planning</strong></p>
+<ul>
+<li><a href="https://www.halfwayanywhere.com/pacific-crest-trail/">Gear, Surveys, Blog</a> (Pretty sweet blog run by a guy named Mac)</li>
+<li><a href="https://pctplanner.com">pctplanner.com</a> (I haven't actually tried this site.)</li>
+<li><a href="https://docs.google.com/spreadsheets/u/0/d/1DsLpp9lEXGZTKWVMyA3eNTeN4NHTSGGAwln1yoWI0Cw/htmlview#">Hiker Food Database</a> (from the <a href="https://www.youtube.com/channel/UCflIoVkAjQnyAwDKFmhRDDw">GearSkeptic</a> on YouTube)</li>
+</ul>
+<h2>On Trail</h2>
+<p><strong>Getting to the trail</strong></p>
+<ul>
+<li><a href="https://pctsouthernterminusshuttle.com/https/book-your-ride">Shuttle Service</a></li>
+</ul>
+<p><strong>Water Report</strong>
+A community led initiative to track the water status along the trail.</p>
+<ul>
+<li><a href="https://pctwater.com">https://pctwater.com</a></li>
+<li><a href="https://www.google.com/maps/d/u/0/viewer?mid=1UtogyvQzegPXZYLARMCTwckZTRxIOOLf&#x26;ll=41.34499145337969%2C-119.83531350000001&#x26;z=5">Google Map Version</a></li>
+<li><a href="https://github.com/jithware/mappoff">Android App (experimental)</a></li>
+</ul>
+<p><strong>Mapping</strong>
+I will use a mix of custom map printouts, and digital data imports from the above resources.</p>
+<ul>
+<li><a href="https://www.gaiagps.com">Gaia App</a> (I imported the kml/gpx data from above resources)</li>
+<li><a href="https://faroutguides.com">FarOut</a> (Apparently very popular on trail for staying in the know)</li>
+<li><a href="https://explore.garmin.com">Garmin</a> (Using an InReach2 for waypoint tracking. Also with imported layers.)</li>
+<li><a href="/resources/halfmiles-pct-notes-all-4-page.html">All Halfmile Notes Minified</a> (I made this easy 2 page print out for lightweight and quick offline info.)</li>
+</ul>
+]]></content>
+        <author>
+            <name>4till2</name>
+            <email>yo@4till2.com</email>
+            <uri>https://twitter.com/4till2</uri>
+        </author>
+        <contributor>
+            <name>4till2</name>
+            <email>yo@4till2.com</email>
+            <uri>https://twitter.com/4till2</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[20220328173055]]></title>
+        <id>https://4till2.com/logs/20220328173055</id>
+        <link href="https://4till2.com/logs/20220328173055"/>
+        <updated>2022-04-21T18:10:45.000Z</updated>
+        <content type="html"><![CDATA[<p>I will try to share logs like this daily. The metadata is autofilled by a shortcut on my iphone. Other nonsense from the day might land here to. All written content for this site is taken on a notes app on my phone or computer, synced with github, fetched by this site, and displayed accordingly.</p>
+]]></content>
+        <author>
+            <name>4till2</name>
+            <email>yo@4till2.com</email>
+            <uri>https://twitter.com/4till2</uri>
+        </author>
+        <contributor>
+            <name>4till2</name>
+            <email>yo@4till2.com</email>
+            <uri>https://twitter.com/4till2</uri>
+        </contributor>
+    </entry>
+</feed>

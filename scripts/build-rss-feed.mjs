@@ -1,6 +1,7 @@
 import Api from "../pages/api/content.mjs";
 import {Feed} from "feed";
 import * as fs from "fs";
+import md2html from "../lib/md2html.mjs";
 
 const getBlogPostsData = async () => {
     const wordsApi = new Api("words")
@@ -38,19 +39,19 @@ const generateRssFeed = async () => {
         author,
     });
 
-    posts.forEach((post) => {
+    for (const post of posts) {
         const url = `${siteURL}/${post.path}/${post.slug}`;
         feed.addItem({
-            title: post.title,
+            title: post.title || post.slug,
             id: url,
             link: url,
             description: post?.extract,
-            content: post.content,
+            content: await md2html(post.content || post.excerpt || ""),
             author: [author],
             contributor: [author],
             date: new Date(post.date),
         });
-    });
+    }
     fs.mkdirSync("./public/rss", {recursive: true});
     fs.writeFileSync("./public/rss/feed.xml", feed.rss2());
     fs.writeFileSync("./public/rss/atom.xml", feed.atom1());

@@ -9,7 +9,7 @@ const Newsletter = () => {
         <div>
           <strong style={{ fontSize: "24px" }}>Subscribe?</strong>
           <p style={{ fontSize: "16px" }}>
-            At times I may send an email with words.
+            Get an email with site updates.
           </p>
         </div>
         <div>
