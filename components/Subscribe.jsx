@@ -23,7 +23,7 @@ const Subscribe = ({buttonText, keepLeft}) => {
 
                             <form
                                 className="flex-none sm:flex-1 md:flex-auto lg:flex-initial xl:flex-1"
-                                action="https://tinyletter.com/4till2" method="post" target="popupwindow"
+                                action="https://tinyletter.com/4till2" method="data" target="popupwindow"
                                 onSubmit={() => {
                                     window.open('https://tinyletter.com/4till2', 'popupwindow', 'scrollbars=yes,width=800,height=600');
                                     return true

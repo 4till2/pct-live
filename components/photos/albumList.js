@@ -2,7 +2,6 @@ import Link from "next/link";
 import classnames from "classnames";
 
 export default function AlbumList({data, activeSlug}) {
-    console.log(data)
     return (
         <div
             className={classnames(
@@ -17,35 +16,35 @@ export default function AlbumList({data, activeSlug}) {
                     Collections of photos from adventures past and present.
                 </p>
             </div>
-            {data?.map((post) => {
-                if (post.slug === "" || post.slug.includes("DS_Store")) return;
+            {data?.map((data) => {
+                if (data.slug === "" || data.slug.includes("DS_Store")) return;
                 return (
                     <Link href={{
-                        pathname: `/albums/${post.slug}`,
+                        pathname: `/albums/${data.slug}`,
                     }}>
                         <a>
                             <article
                                 className={classnames(
                                     "px-4 py-3 my-1 border-b border-gray-100 rounded-lg cursor-pointer group  dark:hover:bg-black dark:border-gray-900",
-                                    {"bg-black": activeSlug == post.slug},
-                                    {"hover:bg-gray-100": activeSlug != post.slug}
+                                    {"bg-black": activeSlug == data.slug},
+                                    {"hover:bg-gray-100": activeSlug != data.slug}
                                 )}
                             >
                                 <h2
                                     className={classnames("font-semibold leading-snug mb-1", {
-                                        "text-white": activeSlug == post.slug,
+                                        "text-white": activeSlug == data.slug,
                                     })}
                                 >
-                                    {post?.title}
+                                    {data?.title}
                                 </h2>
                                 <p
                                     className={classnames(
                                         {
                                             "text-gray-600 dark:text-gray-500":
-                                                activeSlug != post.slug,
+                                                activeSlug != data.slug,
                                         },
                                         {
-                                            "text-gray-400": activeSlug == post.slug,
+                                            "text-gray-400": activeSlug == data.slug,
                                         }
                                     )}
                                 >

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: data
 title: 'Why I Built This Site'
 date: '2022-04-21T14:35:45-04:00'
 categories: about
@@ -33,7 +33,7 @@ journey with me. Have them seen the things I'm seeing, understand the challenges
 the day to day of their PCT thru-hiker. They should be able to ask how many miles did I walk today? What was the
 weather? Where did I start and finish? Who did I meet? What portion of the trail did I tackle? What night camping was
 it? What views did I wake up to? How was all this different from yesterday, or two weeks ago? Where will I be tomorrow
-or two weeks from now? All of these questions are real elements of an experience full of continual context not easily broken down into one off posts, tweets, images, or stories. 
+or two weeks from now? All of these questions are real elements of an experience full of continual context not easily broken down into one off data, tweets, images, or stories. 
 
 My mission with this website is to create a place to share the journey in its continuum. Start to finish, in real time, with all the possible context of the experience itself. So
 I put together this site, a collection of realtime content from my journey, shared automatically in the background to my

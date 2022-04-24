@@ -15,7 +15,7 @@ export default function Home({latest}) {
                 <h2 className="mt-12 mb-6 text-8xl font-black ">
                     <span className="text-gray-400">Y*sef</span>
                 </h2>
-                <div className="post-content text-lg">
+                <div className="data-content text-lg">
 
                     <p>Real time{' '}
                         <Link href={"/map"}>
@@ -42,13 +42,13 @@ export default function Home({latest}) {
                 <h2 className="text-xl tracking-wide font-light text-gray-500 text-center">Most Recent</h2>
                 <div className="flex w-full flex-row flex-wrap ">
                     <div className="w-full p-2 break-words">
-                        {latest.log && <LogCard post={latest.log}/>}
+                        {latest.log && <LogCard data={latest.log}/>}
                     </div>
                     <div className="w-1/2 md:w-1/3  p-2 break-words">
-                        {latest.blip && <BlipCard post={latest.blip}/>}
+                        {latest.blip && <BlipCard data={latest.blip}/>}
                     </div>
                     <div className="w-1/2 md:w-1/3  p-2 break-words">
-                        {latest.word && <WordCard post={latest.word}/>}
+                        {latest.word && <WordCard data={latest.word}/>}
                     </div>
                     <div className="w-1/2 md:w-1/3  p-2 break-words">
                         {latest.photo &&
@@ -68,7 +68,7 @@ export default function Home({latest}) {
                 <div className="mt-8 mb-8 text-gray-500 text-center">
                     ________________________________
                 </div>
-                <div className="mb-4 mt-10 post-content">
+                <div className="mb-4 mt-10 data-content">
                     <Newsletter/>
                 </div>
                 <img src="https://c.tenor.com/rUHoKUXUX6oAAAAC/strut-dancing.gif"
@@ -89,7 +89,7 @@ export async function getServerSideProps() {
     const blipsApi = new Api("blips")
 
     let photo = await albumsByTitles(site_config.timeline_albums).then(res => res ? res[res.length - 1] : null) || null
-    let word = wordsApi.getAllPosts([
+    let word = wordsApi.getAllData([
         "title",
         "date",
         "slug",
@@ -97,7 +97,7 @@ export async function getServerSideProps() {
         "excerpt",
         "external",
     ])[0] || null
-    let blip = blipsApi.getAllPosts([
+    let blip = blipsApi.getAllData([
         "title",
         "date",
         "slug",
@@ -106,7 +106,7 @@ export async function getServerSideProps() {
         "excerpt",
         "content"
     ])[0] || null
-    let log = logsApi.getAllPosts([
+    let log = logsApi.getAllData([
         "title",
         "date",
         "slug",

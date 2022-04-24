@@ -6,23 +6,23 @@ import Seo from "../../components/Seo";
 
 const api = new Api("words")
 
-export default function Post({allPosts, post}) {
+export default function Data({allData, data}) {
     const router = useRouter();
-    if (!router.isFallback && !post?.slug) {
+    if (!router.isFallback && !data?.slug) {
         return <div>Error</div>;
     }
 
     return (
         <div className="flex w-full">
-            <Seo title={`${post.title} - 4till2`} description={post.excerpt || post.content.slice(0, 200) || ""}/>
-            <WordList data={allPosts} activeSlug={post?.slug}/>
-            <WordContent post={post}/>
+            <Seo title={`${data.title} - 4till2`} description={data.excerpt || data.content.slice(0, 200) || ""}/>
+            <WordList data={allData} activeSlug={data?.slug}/>
+            <WordContent data={data}/>
         </div>
     );
 }
 
 export async function getStaticProps({params}) {
-    const allPosts = api.getAllPosts([
+    const allData = api.getAllData([
         "title",
         "date",
         "slug",
@@ -33,7 +33,7 @@ export async function getStaticProps({params}) {
         "link",
     ]);
 
-    const post = api.getPostBySlug(params.slug, [
+    const data = api.getDataBySlug(params.slug, [
         "title",
         "date",
         "slug",
@@ -43,13 +43,13 @@ export async function getStaticProps({params}) {
         "link",
     ]);
 
-    const content = await md2html(post.content || post.excerpt || "");
+    const content = await md2html(data.content || data.excerpt || "");
 
     return {
         props: {
-            allPosts,
-            post: {
-                ...post,
+            allData,
+            data: {
+                ...data,
                 content,
             },
         },
@@ -57,7 +57,7 @@ export async function getStaticProps({params}) {
 }
 
 export async function getStaticPaths() {
-    const allPosts = api.getAllPosts([
+    const allData = api.getAllData([
         "title",
         "date",
         "slug",
@@ -65,14 +65,14 @@ export async function getStaticPaths() {
         "excerpt",
         "content",
     ]);
-    const posts = api.getAllPosts(["slug"]);
+    const data = api.getAllData(["slug"]);
 
     return {
-        paths: posts.map((post) => {
+        paths: data.map((data) => {
             return {
                 params: {
-                    allPosts,
-                    slug: post.slug,
+                    allData,
+                    slug: data.slug,
                 },
             };
         }),

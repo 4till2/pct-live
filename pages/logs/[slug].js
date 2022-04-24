@@ -6,27 +6,27 @@ import Seo from "../../components/Seo";
 
 const api = new Api("logs")
 
-export default function Post({allPosts, post}) {
+export default function Data({allData, data}) {
     const router = useRouter();
 
-    if (!router.isFallback && !post?.slug) {
+    if (!router.isFallback && !data?.slug) {
         return <div>Error</div>;
     }
 
     return (
         <div className="flex w-full">
-            <Seo title={`${post.title} - 4till2`}
+            <Seo title={`${data.title} - 4till2`}
                  description={
-                     post.content.slice(0, 200)?.replace(/<[^>]*>?/gm, "") || ""
+                     data.content.slice(0, 200)?.replace(/<[^>]*>?/gm, "") || ""
                  }/>
-            <LogList allPosts={allPosts} activeSlug={post?.slug}/>
-            <LogContent post={post}/>
+            <LogList allData={allData} activeSlug={data?.slug}/>
+            <LogContent data={data}/>
         </div>
     );
 }
 
 export async function getStaticProps({params}) {
-    const allPosts = api.getAllPosts([
+    const allData = api.getAllData([
         "title",
         "date",
         "slug",
@@ -38,7 +38,7 @@ export async function getStaticProps({params}) {
         "icon",
     ]);
 
-    const post = api.getPostBySlug(params.slug, [
+    const data = api.getDataBySlug(params.slug, [
         "title",
         "date",
         "slug",
@@ -52,13 +52,13 @@ export async function getStaticProps({params}) {
         "icon",
     ]);
 
-    const content = await md2html(post.content || post.excerpt || "");
+    const content = await md2html(data.content || data.excerpt || "");
 
     return {
         props: {
-            allPosts,
-            post: {
-                ...post,
+            allData,
+            data: {
+                ...data,
                 content,
             },
         },
@@ -66,13 +66,13 @@ export async function getStaticProps({params}) {
 }
 
 export async function getStaticPaths() {
-    const posts = api.getAllPosts(["slug"]);
+    const data = api.getAllData(["slug"]);
 
     return {
-        paths: posts.map((post) => {
+        paths: data.map((data) => {
             return {
                 params: {
-                    slug: post.slug,
+                    slug: data.slug,
                 },
             };
         }),

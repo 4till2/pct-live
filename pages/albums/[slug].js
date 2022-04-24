@@ -7,7 +7,7 @@ import Seo from "../../components/Seo";
 
 const api = new Api("albums")
 
-export default function Post({allPosts, slug, post}) {
+export default function Data({allData, slug, data}) {
     const router = useRouter();
 
     if (!router.isFallback && !slug) {
@@ -16,29 +16,29 @@ export default function Post({allPosts, slug, post}) {
 
     return (
         <div className="flex w-full">
-            <Seo title={`${post.title} - 4till2`}
+            <Seo title={`${data.title} - 4till2`}
                  description={
                      "A photo album by Yosef."
                  }/>
-            <AlbumList data={allPosts} activeSlug={slug}/>
-            <AlbumContent post={post}/>
+            <AlbumList data={allData} activeSlug={slug}/>
+            <AlbumContent data={data}/>
         </div>
     );
 }
 
 export async function getServerSideProps({params, query}) {
-    const allPosts = api.getAllPosts([
+    const allData = api.getAllData([
         "title",
         "slug",
     ]);
     // Get album title from data slug
-    const album = allPosts.filter(a => a.slug == params.slug)[0]
+    const album = allData.filter(a => a.slug == params.slug)[0]
     let photos = (await albumByTitle(album.title))?.reverse() || {}
     return {
         props: {
-            allPosts,
+            allData,
             slug: params.slug,
-            post: {
+            data: {
                 title: album.title,
                 photos: photos,
                 count: photos?.length || null

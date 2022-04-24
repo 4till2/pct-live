@@ -6,20 +6,20 @@ import Seo from "../../components/Seo";
 
 const api = new Api("logs")
 
-export default function Logs({allPosts}) {
+export default function Logs({allData}) {
     return (
         <>
             <Seo title="Logs – 4till2"
                  description="Logs from my journey along the Pacific Crest Trail."/>
 
-            <LogList allPosts={allPosts}/>
+            <LogList allData={allData}/>
         </>
     );
 }
 
 export async function getStaticProps() {
 
-    const allPosts = api.getAllPosts([
+    const allData = api.getAllData([
         "title",
         "date",
         "slug",
@@ -31,6 +31,6 @@ export async function getStaticProps() {
     ]);
 
     return {
-        props: {allPosts},
+        props: {allData},
     };
 }

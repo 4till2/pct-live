@@ -4,19 +4,19 @@ import Seo from "../../components/Seo";
 
 const api = new Api("blips")
 
-export default function Blips({allPosts}) {
+export default function Blips({allData}) {
     return (
         <>
             <Seo title="Words - 4till2"
                  description="Just some thoughts from along the way."/>
-            <BlipList data={allPosts}/>
+            <BlipList data={allData}/>
         </>
     );
 }
 
 export async function getStaticProps() {
 
-    const allPosts = api.getAllPosts([
+    const allData = api.getAllData([
         "title",
         "date",
         "slug",
@@ -28,6 +28,6 @@ export async function getStaticProps() {
     ]);
 
     return {
-        props: {allPosts},
+        props: {allData},
     };
 }

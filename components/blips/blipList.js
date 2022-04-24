@@ -17,24 +17,24 @@ export default function BlipList({ data, activeSlug }) {
           Thoughts, ideas, and other brain farts.
         </p>
       </div>
-      {data?.map((post) => {
-        if (post.slug === "" || post.slug.includes("DS_Store")) return;
+      {data?.map((data) => {
+        if (data.slug === "" || data.slug.includes("DS_Store")) return;
         return (
-          <Link href={`/blips/${post.slug}`} key={post.slug}>
+          <Link href={`/blips/${data.slug}`} key={data.slug}>
             <a>
               <article
                 className={classnames(
                   "px-5 py-3 my-1 border-b border-gray-100 rounded-lg cursor-pointer group  dark:hover:bg-black dark:border-gray-900",
-                  { "bg-black": activeSlug == post.slug },
-                  { "hover:bg-gray-100": activeSlug != post.slug }
+                  { "bg-black": activeSlug == data.slug },
+                  { "hover:bg-gray-100": activeSlug != data.slug }
                 )}
               >
                 <h2
                   className={classnames("font-semibold leading-snug mb-1", {
-                    "text-white": activeSlug == post.slug,
+                    "text-white": activeSlug == data.slug,
                   })}
                 >
-                  {post?.link ? (
+                  {data?.link ? (
                     <span className="relative top-[1px] inline-block w-4 h-4 ml-auto mr-2 text-gray-400 dark:text-gray-600">
                       {ExternalLinkIcon}
                     </span>
@@ -42,23 +42,23 @@ export default function BlipList({ data, activeSlug }) {
                     ""
                   )}
                   <div
-                      dangerouslySetInnerHTML={{__html: post?.content}}
-                      className="inline-block mx-auto post-content line-clamp-2"
+                      dangerouslySetInnerHTML={{__html: data?.content}}
+                      className="inline-block mx-auto data-content line-clamp-2"
                   />
                 </h2>
                 <p
                   className={classnames(
                     {
                       "text-gray-600 dark:text-gray-500":
-                        activeSlug != post.slug,
+                        activeSlug != data.slug,
                     },
                     {
-                      "text-gray-400": activeSlug == post.slug,
+                      "text-gray-400": activeSlug == data.slug,
                     }
                   )}
                 >
 
-                  {moment(post.date).format('MMMM Do YYYY, h:mm a')}
+                  {moment(data.date).format('MMMM Do YYYY, h:mm a')}
                 </p>
               </article>
             </a>

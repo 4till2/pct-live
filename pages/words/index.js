@@ -4,17 +4,17 @@ import Seo from "../../components/Seo";
 
 const api = new Api("words")
 
-export default function Words({allPosts}) {
+export default function Words({allData}) {
     return (
         <>
             <Seo title={'Words by Yosef'} description={'Words written by Yosef'}/>
-            <WordList data={allPosts}/>
+            <WordList data={allData}/>
         </>
     );
 }
 
 export async function getStaticProps() {
-    const allPosts = api.getAllPosts([
+    const allData = api.getAllData([
         "title",
         "date",
         "slug",
@@ -25,6 +25,6 @@ export async function getStaticProps() {
     ]);
 
     return {
-        props: {allPosts},
+        props: {allData},
     };
 }

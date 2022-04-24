@@ -3,7 +3,7 @@ import classnames from "classnames";
 import {useRouter} from "next/router";
 import moment from "moment";
 
-export default function LogList({allPosts, activeSlug}) {
+export default function LogList({allData, activeSlug}) {
     const {
         query: {slug},
     } = useRouter();
@@ -21,22 +21,22 @@ export default function LogList({allPosts, activeSlug}) {
                     Regular status updates and metadata.
                 </p>
             </div>
-            {allPosts?.map((post) => (
-                <Link href={`/logs/${post.slug}`} key={post.slug}>
+            {allData?.map((data) => (
+                <Link href={`/logs/${data.slug}`} key={data.slug}>
                     <a>
                         <article
                             className={classnames(
                                 "px-4 py-3 my-1 border-b border-gray-100 rounded-lg cursor-pointer group flex items-center dark:hover:bg-black dark:border-gray-900",
-                                {"bg-black": activeSlug == post.slug},
-                                {"hover:bg-gray-100": activeSlug != post.slug}
+                                {"bg-black": activeSlug == data.slug},
+                                {"hover:bg-gray-100": activeSlug != data.slug}
                             )}
                         >
                             <h2
                                 className={classnames("font-semibold", {
-                                    "text-white": activeSlug == post.slug,
+                                    "text-white": activeSlug == data.slug,
                                 })}
                             >
-                                {moment(post.date).format('MMMM Do YYYY, h:mm a')}
+                                {moment(data.date).format('MMMM Do YYYY, h:mm a')}
                             </h2>
                             {/* <div>
                 <Octicon size="small" icon={getIconByName("mark-github")} />

@@ -15,11 +15,11 @@ export default class Api {
         this.directory = loadDirectory(directory);
     }
 
-    getPostSlugs() {
+    getDataSlugs() {
         return fs.readdirSync(this.directory);
     }
 
-    getPostBySlug(slug, fields = []) {
+    getDataBySlug(slug, fields = []) {
         const realSlug = slug.replace(/\.md$/, "");
         const fullPath = join(this.directory, `${realSlug}.md`);
         const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -44,12 +44,12 @@ export default class Api {
         return items;
     }
 
-    getAllPosts(fields = []) {
-        const slugs = this.getPostSlugs();
-        const posts = slugs
-            ?.map((slug) => this.getPostBySlug(slug, fields))
-            // sort posts by date in descending order
-            .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
-        return posts;
+    getAllData(fields = []) {
+        const slugs = this.getDataSlugs();
+        const data = slugs
+            ?.map((slug) => this.getDataBySlug(slug, fields))
+            // sort data by date in descending order
+            .sort((data1, data2) => (data1.date > data2.date ? -1 : 1));
+        return data;
     }
 }

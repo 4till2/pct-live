@@ -9,7 +9,7 @@ body {
   @apply overflow-hidden dark:text-white dark:bg-[#111];
 }
 
-.post-content {
+.data-content {
   a {
     position: relative;
   }
@@ -163,7 +163,7 @@ body {
     }
   }
 
-  .post-excerpt {
+  .data-excerpt {
     margin: 10px auto 32px auto;
     color: #a0a6ad;
     line-height: 1.3;

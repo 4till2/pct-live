@@ -32,7 +32,7 @@ export default function Timeline({timeline}) {
                         <div className="w-full">
                             {
                                 day?.logs?.map(src => {
-                                    return <div key={src.slug} className="p-2"><LogCard post={src}/></div>
+                                    return <div key={src.slug} className="p-2"><LogCard data={src}/></div>
                                 })
                             }
                         </div>
@@ -60,7 +60,7 @@ export async function getServerSideProps() {
     const blipsApi = new Api("blips")
 
     let albums = await albumsByTitles(site_config.timeline_albums).then(res => groupPhotosByDate(res)) || {}
-    let blips = groupByDate(blipsApi.getAllPosts([
+    let blips = groupByDate(blipsApi.getAllData([
         "title",
         "date",
         "slug",
@@ -69,7 +69,7 @@ export async function getServerSideProps() {
         "external",
         "content"
     ])) || {}
-    let words = groupByDate(wordsApi.getAllPosts([
+    let words = groupByDate(wordsApi.getAllData([
         "title",
         "date",
         "slug",
@@ -77,7 +77,7 @@ export async function getServerSideProps() {
         "excerpt",
         "external",
     ])) || {}
-    let logs = groupByDate(logsApi.getAllPosts([
+    let logs = groupByDate(logsApi.getAllData([
         "title",
         "date",
         "slug",
