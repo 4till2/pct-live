@@ -18,6 +18,7 @@ import {
 } from "lib/icons";
 import classnames from "classnames";
 import {useTheme} from "next-themes";
+import Subscribe from "./Subscribe";
 
 export default function Sidebar() {
     const {pathname} = useRouter();
@@ -178,6 +179,7 @@ export default function Sidebar() {
                 className="w-full max-w-[250px] overflow-scroll md:border-r border-gray-100 h-screen pt-6 pb-10 md:flex flex-col flex-none hidden dark:border-gray-800">
                 {renderLinks()}
                 {renderSocials()}
+                {/*<Subscribe buttonText="Subscribe" keepLeft="" />*/}
                 {renderPrefs()}
             </aside>
             <nav className="fixed bottom-0 left-0 z-10 block w-full p-2 md:hidden">

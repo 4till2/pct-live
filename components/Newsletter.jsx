@@ -5,10 +5,10 @@ import Subscribe from "../components/Subscribe";
 const Newsletter = () => {
   return (
     <div>
-      <div className="p-8  text-center">
+      <div className="p-8 text-center">
         <div>
           <strong style={{ fontSize: "24px" }}>Subscribe?</strong>
-          <p style={{ fontSize: "16px" }}>
+          <p style={{ fontSize: "16px", margin:0 }}>
             Get an email with site updates.
           </p>
         </div>
