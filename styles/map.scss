@@ -5,6 +5,7 @@ $phone: "screen and (max-width: 767px)"; /* Only phone */
   width: 100%;
   height: calc(100vh);
   padding: 8px;
+  background: white;
   @media #{$phone} {
     height: calc(94vh);
   }

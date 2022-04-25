@@ -7,6 +7,8 @@ To create a new Page
 ## Photos
 Create a file in `data/albums` with frontmatter`title: google photos album title`
 
+## Map
+[maptiler.com](https://maptiler.com) for the map tiles.
 
 ## Environment Variables
 **GOOGLE_CLIENT_SECRET** and **GOOGLE_CLIENT_ID**
