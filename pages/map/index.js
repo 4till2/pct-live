@@ -2,6 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import maplibregl from 'maplibre-gl';
 import {addMapBasemap, addMapControls, addMapSources, addMapWaypoints} from "../../lib/map/index";
 import Seo from "../../components/Seo";
+import parseKML from "parse-kml";
 
 export default function Map({waypoints}) {
     const mapContainer = useRef(null);
@@ -46,19 +47,41 @@ export default function Map({waypoints}) {
 }
 
 export async function getServerSideProps() {
-    let response = await fetch('https://share.garmin.com/4till2/Waypoints')
-    let waypoints = await response.json().then(e => e.Waypoints.map(entry => {
-        return {
-            title: entry.X,
-            lat: entry.L,
-            lng: entry.N,
-            elevation: entry.E,
-            date: entry.C,
-            updated_at: entry.M,
-            external_id: entry.D,
-            external_name: 'garmin'
-        }
-    }).reverse())
+    // Tracks
+    //https://support.garmin.com/en-US/?faq=tdlDCyo1fJ5UxjUbA9rMY8
+    let waypoints = await parseKML
+        .toJson('https://share.garmin.com/Feed/Share/4till2?d1=2012-10-16T06:19z&d2=2024-10-18T23:59z')
+        .then(e => {
+                return (
+                    e.features.map(entry => {
+                        return {
+                            title: 'Waypoint',
+                            lat: entry.properties.Latitude || null,
+                            lng: entry.properties.Longitude || null,
+                            elevation: entry.properties.Elevation || null,
+                            velocity: entry.properties.Velocity || null,
+                            course: entry.properties.Course || null,
+                            date: entry.properties.timestamp || null,
+                            external_name: 'garmin'
+                        }
+                    })
+                ).filter(m => m.lat && m.lng).reverse()
+            }
+        )
+    // Waypoints
+    // let response = await fetch('https://share.garmin.com/4till2/Waypoints')
+    // let waypoints = await response.json().then(e => e.Waypoints.map(entry => {
+    //     return {
+    //         title: entry.X,
+    //         lat: entry.L,
+    //         lng: entry.N,
+    //         elevation: entry.E,
+    //         date: entry.C,
+    //         updated_at: entry.M,
+    //         external_id: entry.D,
+    //         external_name: 'garmin'
+    //     }
+    // }).reverse())
     return {
         props: {waypoints},
     };
