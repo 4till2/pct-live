@@ -1,6 +1,7 @@
 ---
 layout: data
 title: 'Why I Built This Site'
+publish: true
 date: '2022-04-21T14:35:45-04:00'
 categories: about
 excerpt: 'For my forthcoming trip I really want to balance the desire to share with that of being untethered.'

@@ -21,21 +21,10 @@
             }
         },
         {
-            "id": "https://4till2.com/words/pct-resources",
-            "content_html": "<p>Some resources I collected while researching thru-hiking the Pacific Crest Trail. Some are good for pre trip others I intend\nto use on trail.</p>\n<h2>Pre Trail</h2>\n<p><strong>General Info</strong></p>\n<ul>\n<li><a href=\"https://www.pcta.org\">Official PCT site</a></li>\n<li><a href=\"https://www.reddit.com/r/PacificCrestTrail/\">Pct Subreddit</a></li>\n</ul>\n<p><strong>Maps</strong></p>\n<ul>\n<li><a href=\"https://www.google.com/maps/d/u/0/viewer?mid=1UtogyvQzegPXZYLARMCTwckZTRxIOOLf&#x26;ll=41.34499145337969%2C-119.83531350000001&#x26;z=5\">Google Map Version</a></li>\n<li><a href=\"https://arcg.is/1vT1ui0\">PCTA Interactive Map</a> (Lots of layers to play around with)</li>\n</ul>\n<p><strong>Gps Data and Trail Notes</strong>\nI used these to learn more about what lies ahead. Practically all apps and maps I came across reference the \"Halfmile\" field data.</p>\n<ul>\n<li><a href=\"https://pctmap.net/gps/\">Halfmile GPX data</a></li>\n<li><a href=\"https://pctmap.net/trail-notes/\">Halfmile Trail Notes</a></li>\n<li><a href=\"https://www.arcgis.com/home/search.html?q=owner%3A%22gkeily_PCTA%22&#x26;restrict=false&#x26;sortOrder=desc&#x26;sortField=relevance#content\">Awesome collection of Map layers</a></li>\n</ul>\n<p><strong>Planning</strong></p>\n<ul>\n<li><a href=\"https://www.halfwayanywhere.com/pacific-crest-trail/\">Gear, Surveys, Blog</a> (Pretty sweet blog run by a guy named Mac)</li>\n<li><a href=\"https://pctplanner.com\">pctplanner.com</a> (I haven't actually tried this site.)</li>\n<li><a href=\"https://docs.google.com/spreadsheets/u/0/d/1DsLpp9lEXGZTKWVMyA3eNTeN4NHTSGGAwln1yoWI0Cw/htmlview#\">Hiker Food Database</a> (from the <a href=\"https://www.youtube.com/channel/UCflIoVkAjQnyAwDKFmhRDDw\">GearSkeptic</a> on YouTube)</li>\n</ul>\n<h2>On Trail</h2>\n<p><strong>Getting to the trail</strong></p>\n<ul>\n<li><a href=\"https://pctsouthernterminusshuttle.com/https/book-your-ride\">Shuttle Service</a></li>\n</ul>\n<p><strong>Water Report</strong>\nA community led initiative to track the water status along the trail.</p>\n<ul>\n<li><a href=\"https://pctwater.com\">https://pctwater.com</a></li>\n<li><a href=\"https://www.google.com/maps/d/u/0/viewer?mid=1UtogyvQzegPXZYLARMCTwckZTRxIOOLf&#x26;ll=41.34499145337969%2C-119.83531350000001&#x26;z=5\">Google Map Version</a></li>\n<li><a href=\"https://github.com/jithware/mappoff\">Android App (experimental)</a></li>\n</ul>\n<p><strong>Mapping</strong>\nI will use a mix of custom map printouts, and digital data imports from the above resources.</p>\n<ul>\n<li><a href=\"https://www.gaiagps.com\">Gaia App</a> (I imported the kml/gpx data from above resources)</li>\n<li><a href=\"https://faroutguides.com\">FarOut</a> (Apparently very popular on trail for staying in the know)</li>\n<li><a href=\"https://explore.garmin.com\">Garmin</a> (Using an InReach2 for waypoint tracking. Also with imported layers.)</li>\n<li><a href=\"/resources/halfmiles-pct-notes-all-4-page.html\">All Halfmile Notes Minified</a> (I made this easy 2 page print out for lightweight and quick offline info.)</li>\n</ul>\n",
-            "url": "https://4till2.com/words/pct-resources",
-            "title": "Resources for Hiking The Pacific Crest Trail",
-            "date_modified": "2022-04-21T17:47:45.000Z",
-            "author": {
-                "name": "4till2",
-                "url": "https://twitter.com/4till2"
-            }
-        },
-        {
             "id": "https://4till2.com/logs/20220328173055",
             "content_html": "<p>I will try to share logs like this daily. The metadata is autofilled by a shortcut on my iphone. Other nonsense from the day might land here to. All written content for this site is taken on a notes app on my phone or computer, synced with github, fetched by this site, and displayed accordingly.</p>\n",
             "url": "https://4till2.com/logs/20220328173055",
-            "title": "20220328173055",
+            "title": "Log 2022-04-21",
             "date_modified": "2022-04-21T18:10:45.000Z",
             "author": {
                 "name": "4till2",

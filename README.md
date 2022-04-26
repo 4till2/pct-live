@@ -1,3 +1,10 @@
+## Data
+By adding a new data source
+1. Add page
+2. Add to sitemap and or Rss `getData()` function.
+
+Data is output if `publish: true` in front matter
+
 ## Pages
 To create a new Page
 1. Create directory for page data in [/data](/data)

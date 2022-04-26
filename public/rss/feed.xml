@@ -4,7 +4,7 @@
         <title>4till2 site</title>
         <link>https://4till2.com</link>
         <description></description>
-        <lastBuildDate>Sun, 24 Apr 2022 17:23:24 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 26 Apr 2022 06:04:39 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -57,61 +57,7 @@ excited to experiment with this form of journaling from the trail!</p>
             <author>yo@4till2.com (4till2)</author>
         </item>
         <item>
-            <title><![CDATA[Resources for Hiking The Pacific Crest Trail]]></title>
-            <link>https://4till2.com/words/pct-resources</link>
-            <guid>https://4till2.com/words/pct-resources</guid>
-            <pubDate>Thu, 21 Apr 2022 17:47:45 GMT</pubDate>
-            <content:encoded><![CDATA[<p>Some resources I collected while researching thru-hiking the Pacific Crest Trail. Some are good for pre trip others I intend
-to use on trail.</p>
-<h2>Pre Trail</h2>
-<p><strong>General Info</strong></p>
-<ul>
-<li><a href="https://www.pcta.org">Official PCT site</a></li>
-<li><a href="https://www.reddit.com/r/PacificCrestTrail/">Pct Subreddit</a></li>
-</ul>
-<p><strong>Maps</strong></p>
-<ul>
-<li><a href="https://www.google.com/maps/d/u/0/viewer?mid=1UtogyvQzegPXZYLARMCTwckZTRxIOOLf&#x26;ll=41.34499145337969%2C-119.83531350000001&#x26;z=5">Google Map Version</a></li>
-<li><a href="https://arcg.is/1vT1ui0">PCTA Interactive Map</a> (Lots of layers to play around with)</li>
-</ul>
-<p><strong>Gps Data and Trail Notes</strong>
-I used these to learn more about what lies ahead. Practically all apps and maps I came across reference the "Halfmile" field data.</p>
-<ul>
-<li><a href="https://pctmap.net/gps/">Halfmile GPX data</a></li>
-<li><a href="https://pctmap.net/trail-notes/">Halfmile Trail Notes</a></li>
-<li><a href="https://www.arcgis.com/home/search.html?q=owner%3A%22gkeily_PCTA%22&#x26;restrict=false&#x26;sortOrder=desc&#x26;sortField=relevance#content">Awesome collection of Map layers</a></li>
-</ul>
-<p><strong>Planning</strong></p>
-<ul>
-<li><a href="https://www.halfwayanywhere.com/pacific-crest-trail/">Gear, Surveys, Blog</a> (Pretty sweet blog run by a guy named Mac)</li>
-<li><a href="https://pctplanner.com">pctplanner.com</a> (I haven't actually tried this site.)</li>
-<li><a href="https://docs.google.com/spreadsheets/u/0/d/1DsLpp9lEXGZTKWVMyA3eNTeN4NHTSGGAwln1yoWI0Cw/htmlview#">Hiker Food Database</a> (from the <a href="https://www.youtube.com/channel/UCflIoVkAjQnyAwDKFmhRDDw">GearSkeptic</a> on YouTube)</li>
-</ul>
-<h2>On Trail</h2>
-<p><strong>Getting to the trail</strong></p>
-<ul>
-<li><a href="https://pctsouthernterminusshuttle.com/https/book-your-ride">Shuttle Service</a></li>
-</ul>
-<p><strong>Water Report</strong>
-A community led initiative to track the water status along the trail.</p>
-<ul>
-<li><a href="https://pctwater.com">https://pctwater.com</a></li>
-<li><a href="https://www.google.com/maps/d/u/0/viewer?mid=1UtogyvQzegPXZYLARMCTwckZTRxIOOLf&#x26;ll=41.34499145337969%2C-119.83531350000001&#x26;z=5">Google Map Version</a></li>
-<li><a href="https://github.com/jithware/mappoff">Android App (experimental)</a></li>
-</ul>
-<p><strong>Mapping</strong>
-I will use a mix of custom map printouts, and digital data imports from the above resources.</p>
-<ul>
-<li><a href="https://www.gaiagps.com">Gaia App</a> (I imported the kml/gpx data from above resources)</li>
-<li><a href="https://faroutguides.com">FarOut</a> (Apparently very popular on trail for staying in the know)</li>
-<li><a href="https://explore.garmin.com">Garmin</a> (Using an InReach2 for waypoint tracking. Also with imported layers.)</li>
-<li><a href="/resources/halfmiles-pct-notes-all-4-page.html">All Halfmile Notes Minified</a> (I made this easy 2 page print out for lightweight and quick offline info.)</li>
-</ul>
-]]></content:encoded>
-            <author>yo@4till2.com (4till2)</author>
-        </item>
-        <item>
-            <title><![CDATA[20220328173055]]></title>
+            <title><![CDATA[Log 2022-04-21]]></title>
             <link>https://4till2.com/logs/20220328173055</link>
             <guid>https://4till2.com/logs/20220328173055</guid>
             <pubDate>Thu, 21 Apr 2022 18:10:45 GMT</pubDate>

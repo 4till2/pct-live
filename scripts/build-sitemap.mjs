@@ -1,34 +1,34 @@
 import {writeFileSync} from "fs";
-import {globby} from "globby";
 import prettier from "prettier";
+import Api from "../pages/api/content.mjs";
+
+const getBlogPostsData = async () => {
+    const wordsApi = new Api("words")
+    const logsApi = new Api("logs")
+    const albumsApi = new Api("albums")
+    let data = [...wordsApi.getAllData(), ...logsApi.getAllData(), ...albumsApi.getAllData()]
+
+    return data
+}
 
 async function generateSiteMap() {
     const prettierConfig = await prettier.resolveConfig("./.prettierrc.js");
-    const pages = await globby([
-        "pages/*.js",
-        "data/**/*.md",
-        "!data/*.md",
-        "!data/private/",
-        "data/**/*.private.md",
-        "!pages/_*.js",
-        "!pages/api",
-    ]);
+
+    const posts = await getBlogPostsData();
+    const siteURL = 'https://4till2.com';
 
     const sitemap = `
     <?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-        ${pages
-        .map((page) => {
-            const path = page
-                .replace("pages", "")
-                .replace("data", "")
-                .replace(".js", "")
-                .replace(".md", "");
-            const route = path === "/index" ? "" : path;
-
+        <url>
+            <loc>${siteURL}</loc>
+        </url>
+        ${posts
+        .map((post) => {
+            const url = `${siteURL}/${post.path}/${post.slug}`;
             return `
               <url>
-                  <loc>${`https://4till2.com${route}`}</loc>
+                  <loc>${`${url}`}</loc>
               </url>
             `;
         })

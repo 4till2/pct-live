@@ -3,16 +3,16 @@ import {Feed} from "feed";
 import * as fs from "fs";
 import md2html from "../lib/md2html.mjs";
 
-const getBlogPostsData = async () => {
+const getData = async () => {
     const wordsApi = new Api("words")
     const logsApi = new Api("logs")
-    let words = [...wordsApi.getAllData(), ...logsApi.getAllData()]
+    let data = [...wordsApi.getAllData(), ...logsApi.getAllData()]
 
-    return words
+    return data
 }
 
 const generateRssFeed = async () => {
-    const posts = await getBlogPostsData();
+    const posts = await getData();
     const siteURL = 'https://4till2.com';
     const date = new Date();
     const author = {
@@ -45,7 +45,8 @@ const generateRssFeed = async () => {
             title: post.title || post.slug,
             id: url,
             link: url,
-            description: post?.extract,
+            description: post?.description || post?.excerpt,
+            excerpt: post?.excerpt,
             content: await md2html(post.content || post.excerpt || ""),
             author: [author],
             contributor: [author],

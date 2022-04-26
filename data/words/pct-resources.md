@@ -1,5 +1,6 @@
 ---
 layout: data
+publish: true
 title: 'Resources for Hiking The Pacific Crest Trail'
 date: '2022-04-21T13:47:45-04:00'
 categories: resources

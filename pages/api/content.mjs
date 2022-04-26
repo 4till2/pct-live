@@ -25,6 +25,8 @@ export default class Api {
         const fullPath = join(this.directory, `${realSlug}.md`);
         const fileContents = fs.readFileSync(fullPath, "utf8");
         const {data, content} = matter(fileContents);
+        if (!data.publish) return null
+
         let items = {};
 
         // If fields are specified only return those, otherwise return all fields.
@@ -53,7 +55,9 @@ export default class Api {
     getAllData(fields = []) {
         const slugs = this.getDataSlugs();
         const data = slugs
-            ?.map((slug) => this.getDataBySlug(slug, fields))
+            ?.map((slug) => this.getDataBySlug(slug, fields)).filter(function (val) {
+                return val !== null;
+            })
             // sort data by date in descending order
             .sort((data1, data2) => (data1.date > data2.date ? -1 : 1));
         return data;
