@@ -12,7 +12,7 @@ import {
     LogIcon,
     MapIcon,
     MoonIcon, RssIcon,
-    SunIcon,
+    SunIcon, TikTokIcon,
     TimelineIcon,
     TwitterIcon,
 } from "lib/icons";
@@ -76,6 +76,12 @@ export default function Sidebar() {
             title: "Instagram",
             url: `https://www.instagram.com/4till2`,
             icon: InstagramIcon,
+            external: true,
+        },
+        {
+            title: "TikTok",
+            url: `https://www.tiktok.com/@4till2`,
+            icon: TikTokIcon,
             external: true,
         },
         // {
