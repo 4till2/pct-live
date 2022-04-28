@@ -30,7 +30,7 @@ export async function getServerSideProps({params, query}) {
     const allData = api.getAllData();
     // Get album title from data slug
     const album = allData.filter(a => a.slug == params.slug)[0]
-    let photos = (await albumByTitle(album.title))?.reverse() || {}
+    let photos = (await albumByTitle(album.title)) || {}
 
     return {
         props: {
