@@ -88,7 +88,7 @@ export async function getServerSideProps() {
     const logsApi = new Api("logs")
     const blipsApi = new Api("blips")
 
-    let photo = await albumsByTitles(site_config.timeline_albums).then(res => res ? res[res.length - 1] : null) || null
+    let photo = await albumsByTitles(site_config.timeline_albums).then(res => res ? res[0] : null) || null
     let word = wordsApi.getAllData()[0] || null
     let blip = blipsApi.getAllData()[0] || null
     let log = logsApi.getAllData()[0] || null
