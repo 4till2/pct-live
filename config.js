@@ -1,10 +1,10 @@
 export const site_config = {}
-site_config.timeline_albums = ['Pre Pacific Crest Trail']
+site_config.timeline_albums = ['Pacific Crest Trail', 'Pre Pacific Crest Trail']
 
 export const google_config = {};
 // How long to cache results for
 google_config.albumsCacheSeconds = 86400; // One day
-google_config.photosCacheSeconds = 500; // 5 minutes
+google_config.photosCacheSeconds = 600; // 10 minutes
 // The number of photos to load for search requests.
 google_config.photosToLoad = 1000;
 // The page size to use for search requests. 100 is reccommended.
