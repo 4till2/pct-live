@@ -38,8 +38,12 @@ export default function Home({latest}) {
                         thru hike.
                     </p>
                 </div>
+                
+                
 
-                <h2 className="text-xl tracking-wide font-light text-gray-500 text-center">Most Recent</h2>
+                <h2 className="text-xl tracking-wide font-light text-gray-500 text-center">  <Link href={"/timeline"}>
+                        <a className="text-gray-500 w-full font-medium hover:text-gray-600 underline text-center font-bold">Timeline</a>
+                    </Link></h2>
                 <div className="flex w-full flex-row flex-wrap ">
                     <div className="w-full p-2 break-words">
                         {latest.log && <LogCard data={latest.log}/>}
