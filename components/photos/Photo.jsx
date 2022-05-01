@@ -16,6 +16,7 @@ const Photo = ({src, description, width, height}) => {
     return (
         <div className='cursor-pointer'>
             <Image
+                unoptimized='true'
                 onClick={toggleModal}
                 src={src}
                 width={width || 100}
@@ -38,6 +39,7 @@ const Photo = ({src, description, width, height}) => {
                 contentElement={
                     () => <div className="">
                         <Image
+                        unoptimized='true' 
                             src={src + FULL_REQUEST_SIZE}
                             layout='fill'
                             alt={description}
