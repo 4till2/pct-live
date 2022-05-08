@@ -52,8 +52,7 @@ export async function getServerSideProps() {
     let daysago = moment().subtract(3, 'days').format();
     // Tracks
     //https://support.garmin.com/en-US/?faq=tdlDCyo1fJ5UxjUbA9rMY8
-    let waypoints = await parseKML
-        .toJson(`https://share.garmin.com/Feed/Share/4till2?d1=${daysago}&d2=2024-10-18T23:59z`)
+    let waypoints = await parseKML.toJson('https://share.garmin.com/Feed/Share/4till2?d1=2022-05-04T06:19z&d2=2024-10-18T23:59z')
         .then(e => {
                 return (
                     e.features.map(entry => {
