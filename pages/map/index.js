@@ -3,6 +3,7 @@ import maplibregl from 'maplibre-gl';
 import {addMapBasemap, addMapControls, addMapSources, addMapWaypoints} from "../../lib/map/index";
 import Seo from "../../components/Seo";
 import parseKML from "parse-kml";
+import moment from "moment";
 
 export default function Map({waypoints}) {
     const mapContainer = useRef(null);
@@ -47,10 +48,12 @@ export default function Map({waypoints}) {
 }
 
 export async function getServerSideProps() {
+    // vercel times out if getting all kml data at once
+    let daysago = moment().subtract(3, 'days').format();
     // Tracks
     //https://support.garmin.com/en-US/?faq=tdlDCyo1fJ5UxjUbA9rMY8
     let waypoints = await parseKML
-        .toJson('https://share.garmin.com/Feed/Share/4till2?d1=2022-05-02T06:19z&d2=2024-10-18T23:59z')
+        .toJson(`https://share.garmin.com/Feed/Share/4till2?d1=${daysago}&d2=2024-10-18T23:59z`)
         .then(e => {
                 return (
                     e.features.map(entry => {
